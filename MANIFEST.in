@@ -1,0 +1,13 @@
+# The published packages carry the `exsited` library, README.md (the PyPI page) and
+# LICENSE. Docs, tests and contributor files are not shipped.
+exclude MANIFEST.in
+exclude CHANGELOG.md
+exclude ENDPOINTS.md
+exclude DEVELOPMENT.md
+exclude CLAUDE.md
+exclude measurements.json
+exclude uv.lock
+exclude .env
+prune tests
+prune docs
+prune captures

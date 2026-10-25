@@ -1,0 +1,49 @@
+.env
+.env.*
+!.env.example
+
+# The token cache and its lock sidecar, for a token_cache_path pointed into the
+# repository: the file holds a live access token.
+token.json
+*_token.json
+*_token*.json
+*_token*.json.lock
+*.tmp
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+build/
+dist/
+*.egg
+*.egg-info/
+.eggs/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Per-developer editor and tool state.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+/.remember/
+.mypy_cache/
+.ruff_cache/
+
+logs/
+*.log
+/notes/
+/scratchpad/
+claude_works/
+
+# Captured live responses carry real people's email, address and phone fields.
+# The measurement derived from them, measurements.json, holds names and types
+# only and is committed.
+captures/
+sweep_result.json
+
+# CLAUDE.md is deliberately not ignored: it is the file Claude Code loads at the
+# start of a session, and DEVELOPMENT.md is not.
