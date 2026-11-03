@@ -16,7 +16,6 @@ __all__ = [
 class PortalLogin(Dto):
     """The portal login body, under ``portal``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/portal/login",)
 
     ENVELOPE_KEY = "portal"
 
@@ -26,7 +25,6 @@ class PortalLogin(Dto):
 class PortalChangePassword(Dto):
     """What ``create_portal_change_password`` answers, under ``portal``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/portal/change_password",)
 
     ENVELOPE_KEY = "portal"
 
@@ -36,7 +34,6 @@ class PortalChangePassword(Dto):
 class PortalResetLink(Dto):
     """What ``create_portal_reset_link`` answers."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/portal/reset_link",)
 
     message: str | None = None
     object: str | None = None

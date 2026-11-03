@@ -23,7 +23,6 @@ __all__ = [
 class PurchaseCreditNoteApplication(Dto):
     """The purchase credit note application body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_credit_note_applications",)
 
     amount: str | None = None
     created_by: PurchaseCreditNoteApplicationCreatedBy | None = None
@@ -33,7 +32,6 @@ class PurchaseCreditNoteApplication(Dto):
     href: str | None = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None
@@ -49,7 +47,6 @@ class PurchaseCreditNoteApplication(Dto):
 class PurchaseCreditNoteApplicationList(Dto):
     """One page of ``PurchaseCreditNoteApplication`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_credit_note_applications",)
 
     data: list[PurchaseCreditNoteApplication] | None = None
     object: str | None = None
@@ -61,9 +58,6 @@ class PurchaseCreditNoteApplicationRead(Dto):
     """The purchase credit note application read body, under
     ``purchase_credit_note_application``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_credit_note_applications/{purchase_credit_note_application_id}",
-    )
 
     ENVELOPE_KEY = "purchase_credit_note_application"
 
@@ -73,7 +67,6 @@ class PurchaseCreditNoteApplicationRead(Dto):
     href: str | None = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None

@@ -26,7 +26,6 @@ __all__ = [
 class CreditNoteApplication(Dto):
     """The credit note application body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/credit_note_applications",)
 
     amount: float | None = None
     created_by: CreditNoteApplicationCreatedBy | None = None
@@ -37,7 +36,6 @@ class CreditNoteApplication(Dto):
     href: str | None = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None
@@ -55,7 +53,6 @@ class CreditNoteApplication(Dto):
 class CreditNoteApplicationList(Dto):
     """One page of ``CreditNoteApplication`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/credit_note_applications",)
 
     data: list[CreditNoteApplication] | None = None
     object: str | None = None
@@ -66,9 +63,6 @@ class CreditNoteApplicationList(Dto):
 class CreditNoteApplicationRead(Dto):
     """The credit note application read body, under ``credit_note_application``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/credit_note_applications/{credit_note_application_id}",
-    )
 
     ENVELOPE_KEY = "credit_note_application"
 
@@ -79,7 +73,6 @@ class CreditNoteApplicationRead(Dto):
     href: str | None = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None
@@ -94,7 +87,6 @@ class CreditNoteApplicationRead(Dto):
 class InvoiceCreditNoteApplications(Dto):
     """The invoice credit note applications body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/invoices/{invoice_id}/credit_note_applications",)
 
     data: list[CreditNoteApplication] | None = None
     object: str | None = None

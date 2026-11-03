@@ -1,5 +1,4 @@
-"""Typed views over the communication bodies: none, since the one endpoint sends real email
-and its answer was never measured."""
+"""Typed views over the communication bodies: none."""
 
 from __future__ import annotations
 

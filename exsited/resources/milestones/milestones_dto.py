@@ -15,12 +15,6 @@ __all__ = [
 class Milestones(Dto):
     """The milestones body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/milestones",
-        "GET /api/{api_version}/milestones/account/{account_id}",
-        "GET /api/{api_version}/milestones/labour/{labour_id}",
-        "GET /api/{api_version}/milestones/employee/{employee_code}",
-    )
 
     data: list[Any] | None = None
     object: str | None = None

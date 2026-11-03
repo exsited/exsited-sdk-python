@@ -15,7 +15,6 @@ __all__ = [
 class IntegrationConnections(Dto):
     """The integration connections body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/integration_connections",)
 
     data: list[Any] | None = None
     object: str | None = None

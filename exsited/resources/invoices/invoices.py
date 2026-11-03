@@ -324,8 +324,7 @@ def get_invoice_item_fulfillments(
     response_format: str | None = None,
 ) -> ApiResponse[ItemFulfillmentReadList]:
     """List the fulfilments against an invoice - ``GET /invoices/{invoice_id}/item_fulfillments``,
-    spelled with two Ls. Reads as the item fulfilment family's page view, measured from this
-    path."""
+    spelled with two Ls. Reads as the item fulfilment family's page view."""
     return client.send_get_request(
         invoices_urls.INVOICE_ITEM_FULFILLMENTS,
         path_params={"invoice_id": invoice_id},

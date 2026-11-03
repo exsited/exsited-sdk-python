@@ -137,7 +137,6 @@ __all__ = [
 class Order(Dto):
     """The order body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders",)
 
     account: OrderAccount | None = None
     allow_contract: bool | None = None
@@ -147,7 +146,6 @@ class Order(Dto):
     billing_start_day_of_month: str | None = None
     communication_preferences: list[OrderCommunicationPreference] | None = None
     contract_properties: OrderContractProperties | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: OrderCurrency | None = None
@@ -158,7 +156,6 @@ class Order(Dto):
     display_name: str | None = None
     id: str | None = None
     invoice_note: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     manager: OrderManager | None = None
@@ -187,7 +184,6 @@ class Order(Dto):
 class OrderList(Dto):
     """One page of ``Order`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders",)
 
     data: list[Order] | None = None
     object: str | None = None
@@ -198,13 +194,11 @@ class OrderList(Dto):
 class OrderNote(Dto):
     """The order note body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/notes",)
 
     attachments: list[OrderNoteAttachment] | None = None
     content: str | None = None
     created_by: OrderNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
@@ -212,7 +206,6 @@ class OrderNote(Dto):
     last_updated_on: str | None = None
     object: str | None = None
     order: OrderNoteDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[OrderNoteWatcher] | None = None
@@ -221,7 +214,6 @@ class OrderNote(Dto):
 class OrderNoteList(Dto):
     """One page of ``OrderNote`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/notes",)
 
     data: list[OrderNote] | None = None
     object: str | None = None
@@ -232,24 +224,6 @@ class OrderNoteList(Dto):
 class OrderRead(Dto):
     """The order read body, under ``order``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/orders/{order_id}",
-        "GET /api/{api_version}/orders/{order_id}/lines",
-        "POST /api/{api_version}/orders",
-        "POST /api/{api_version}/orders/{order_id}/activate_draft",
-        "PATCH /api/{api_version}/orders/{order_id}/billing_preferences",
-        "PUT /api/{api_version}/orders/{order_id}/billing_preferences",
-        "POST /api/{api_version}/orders/{order_id}/cancel",
-        "POST /api/{api_version}/orders/{order_id}/change",
-        "POST /api/{api_version}/orders/{order_id}/convert_to_order",
-        "PATCH /api/{api_version}/orders/{order_id}/information",
-        "POST /api/{api_version}/orders/{order_id}/reactivate",
-        "POST /api/{api_version}/orders/{order_id}/relinquish",
-        "PATCH /api/{api_version}/orders/{order_id}/lines/{line_uuid}",
-        "PATCH /api/{api_version}/orders/{order_id}/lines/{line_uuid}/billing_preferences",
-        "PUT /api/{api_version}/orders/{order_id}/lines/{line_uuid}/billing_preferences",
-        "POST /api/{api_version}/orders/{order_id}/change/preview",
-    )
 
     ENVELOPE_KEY = "order"
 
@@ -262,7 +236,6 @@ class OrderRead(Dto):
     billing_start_day_of_month: str | None = None
     communication_preferences: list[OrderReadCommunicationPreference] | None = None
     contract_properties: OrderReadContractProperties | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: OrderReadCurrency | None = None
@@ -275,7 +248,6 @@ class OrderRead(Dto):
     id: str | None = None
     invoice_note: str | None = None
     kpis: OrderReadKpis | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     lines: list[OrderReadLine] | None = None
@@ -292,14 +264,11 @@ class OrderRead(Dto):
     price_tax_inclusive: bool | None = None
     quote_converted: bool | None = None
     quote_order: bool | None = None
-    # Null in every record measured, so untyped.
     referral_account: Any = None
-    # Null in every record measured, so untyped.
     sales_rep: Any = None
     shipping_address: OrderReadShippingAddress | None = None
     shipping_cost: float | None = None
     shipping_line_items: list[Any] | None = None
-    # Null in every record measured, so untyped.
     shipping_profile: Any = None
     status: str | None = None
     subtotal: str | None = None
@@ -312,7 +281,6 @@ class OrderRead(Dto):
 class OrderInformation(Dto):
     """The order information body, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/information",)
 
     ENVELOPE_KEY = "order"
 
@@ -322,19 +290,16 @@ class OrderInformation(Dto):
     billing_start_date: str | None = None
     billing_start_day_of_month: str | None = None
     communication_preferences: list[OrderInformationCommunicationPreference] | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: OrderInformationCurrency | None = None
     custom_form: OrderInformationCustomForm | None = None
-    # Null in every record measured, so untyped.
     customer_purchase_order_id: Any = None
     description: str | None = None
     discount_profile: OrderInformationDiscountProfile | None = None
     display_name: str | None = None
     id: str | None = None
     invoice_note: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     manager: OrderInformationManager | None = None
@@ -350,13 +315,10 @@ class OrderInformation(Dto):
     price_tax_inclusive: bool | None = None
     quote_converted: bool | None = None
     quote_order: bool | None = None
-    # Null in every record measured, so untyped.
     referral_account: Any = None
-    # Null in every record measured, so untyped.
     sales_rep: Any = None
     shipping_address: OrderInformationShippingAddress | None = None
     shipping_cost: float | None = None
-    # Null in every record measured, so untyped.
     shipping_profile: Any = None
     status: str | None = None
     time_zone: OrderInformationTimeZone | None = None
@@ -366,12 +328,6 @@ class OrderInformation(Dto):
 class AccountOrders(Dto):
     """The account orders body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/accounts/{account_id}/orders",
-        "GET /api/{api_version}/orders/{order_id}/custom_objects",
-        "GET /api/{api_version}/orders/{order_id}/custom_objects_instances",
-        "GET /api/{api_version}/orders/{order_id}/item_fulfillments",
-    )
 
     data: list[AccountOrdersData] | None = None
     object: str | None = None
@@ -382,7 +338,6 @@ class AccountOrders(Dto):
 class OrderBillingPreferences(Dto):
     """The order billing preferences body, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/billing_preferences",)
 
     ENVELOPE_KEY = "order"
 
@@ -393,7 +348,6 @@ class OrderBillingPreferences(Dto):
 class OrderPaymentMethods(Dto):
     """What ``get_order_payment_methods`` answers, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/payment_methods",)
 
     ENVELOPE_KEY = "order"
 
@@ -403,7 +357,6 @@ class OrderPaymentMethods(Dto):
 class OrderPdf(Dto):
     """What ``get_order_pdf`` answers, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/pdf",)
 
     ENVELOPE_KEY = "order"
 
@@ -413,7 +366,6 @@ class OrderPdf(Dto):
 class OrderLine(Dto):
     """What ``get_order_line`` answers, under ``order_line``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/lines/{line_uuid}",)
 
     ENVELOPE_KEY = "order_line"
 
@@ -445,11 +397,6 @@ class OrderLine(Dto):
 class OrderNoteView(Dto):
     """What ``get_order_note`` answers, under ``note``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/orders/{order_id}/notes/{order_note_id}",
-        "POST /api/{api_version}/orders/{order_id}/notes",
-        "PATCH /api/{api_version}/orders/{order_id}/notes/{order_note_id}",
-    )
 
     ENVELOPE_KEY = "note"
 
@@ -457,7 +404,6 @@ class OrderNoteView(Dto):
     content: str | None = None
     created_by: OrderNoteViewCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
@@ -465,7 +411,6 @@ class OrderNoteView(Dto):
     last_updated_on: str | None = None
     object: str | None = None
     order: OrderNoteViewDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[OrderNoteViewWatcher] | None = None
@@ -474,9 +419,6 @@ class OrderNoteView(Dto):
 class OrderPaymentMethod(Dto):
     """What ``get_order_payment_method`` answers, under ``order``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/orders/{order_id}/payment_methods/{payment_method_ref}",
-    )
 
     ENVELOPE_KEY = "order"
 
@@ -486,7 +428,6 @@ class OrderPaymentMethod(Dto):
 class OrderNoteFileList(Dto):
     """One page of what ``get_order_note_files`` lists, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/notes/{order_note_id}/files",)
 
     data: list[OrderNoteFileEntry] | None = None
     object: str | None = None
@@ -497,9 +438,6 @@ class OrderNoteFileList(Dto):
 class OrderNoteFile(Dto):
     """What ``get_order_note_file`` answers, under ``file``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/orders/{order_id}/notes/{order_note_id}/files/{order_file_id}",
-    )
 
     ENVELOPE_KEY = "file"
 
@@ -513,7 +451,6 @@ class OrderNoteFile(Dto):
 class OrderDiscardDraft(Dto):
     """What ``create_order_discard_draft`` answers, under ``order``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/orders/{order_id}/discard_draft",)
 
     ENVELOPE_KEY = "order"
 
@@ -523,7 +460,6 @@ class OrderDiscardDraft(Dto):
 class OrderExtendTrial(Dto):
     """What ``create_order_extend_trial`` answers, under ``order``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/orders/{order_id}/extend_trial",)
 
     ENVELOPE_KEY = "order"
 
@@ -541,7 +477,6 @@ class AccountOrdersData(Dto):
     billing_start_day_of_month: str | None = None
     communication_preferences: list[AccountOrdersDataCommunicationPreference] | None = None
     contract_properties: AccountOrdersDataContractProperties | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: AccountOrdersDataCurrency | None = None
@@ -552,7 +487,6 @@ class AccountOrdersData(Dto):
     display_name: str | None = None
     id: str | None = None
     invoice_note: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     manager: AccountOrdersDataManager | None = None
@@ -568,13 +502,10 @@ class AccountOrdersData(Dto):
     price_tax_inclusive: bool | None = None
     quote_converted: bool | None = None
     quote_order: bool | None = None
-    # Null in every record measured, so untyped.
     referral_account: Any = None
-    # Null in every record measured, so untyped.
     sales_rep: Any = None
     shipping_address: AccountOrdersDataShippingAddress | None = None
     shipping_cost: float | None = None
-    # Null in every record measured, so untyped.
     shipping_profile: Any = None
     status: str | None = None
     time_zone: AccountOrdersDataTimeZone | None = None
@@ -764,27 +695,18 @@ class OrderReadLine(Dto):
 class OrderReadKpis(Dto):
     """A :class:`OrderRead`'s ``kpis``."""
 
-    # Null in every record measured, so untyped.
     created_on: Any = None
-    # Null in every record measured, so untyped.
     deleted_at: Any = None
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     last_cancelled_at: Any = None
-    # Null in every record measured, so untyped.
     last_changed_at: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_at: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     monthly_recurring_revenue: str | None = None
-    # Null in every record measured, so untyped.
     next_invoice_issue_date: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     start_date: Any = None
     total_collected: str | None = None
     total_due: str | None = None
@@ -921,7 +843,6 @@ class OrderPaymentMethodsRow(Dto):
     id: str | None = None
     last_updated_by: str | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     last_used_at: Any = None
     object: str | None = None
     payment_count: int | None = None
@@ -1048,7 +969,6 @@ class OrderPaymentMethodDetail(Dto):
     id: str | None = None
     last_updated_by: str | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     last_used_at: Any = None
     object: str | None = None
     payment_count: int | None = None
@@ -1372,13 +1292,10 @@ class OrderContractProperties(Dto):
 class OrderReadBillingPreferencesProformaProperties(Dto):
     """A :class:`OrderReadBillingPreferences`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 
@@ -1458,13 +1375,10 @@ class OrderReadLineBooking(Dto):
 class OrderBillingPreferencesDetailProformaProperties(Dto):
     """A :class:`OrderBillingPreferencesDetail`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 
@@ -1553,25 +1467,20 @@ class OrderPaymentMethodDetailProcessor(Dto):
 class AccountOrdersDataBillingPreferencesProformaProperties(Dto):
     """A :class:`AccountOrdersDataBillingPreferences`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 
 class OrderBillingPreferencesEntryProformaProperties(Dto):
     """A :class:`OrderBillingPreferencesEntry`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
     acceptance_term: str | None = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 
@@ -1602,27 +1511,19 @@ class OrderReadLineItemSaleTaxConfigurationTaxCode(Dto):
 class OrderKpis(Dto):
     """What ``get_order_kpis`` answers, under ``order_kpis``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/kpis",)
 
     ENVELOPE_KEY = "order_kpis"
 
-    # Null in every record measured, so untyped.
     deleted_at: Any = None
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     last_cancelled_at: Any = None
-    # Null in every record measured, so untyped.
     last_changed_at: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_at: Any = None
     monthly_recurring_revenue: str | None = None
-    # Null in every record measured, so untyped.
     next_invoice_issue_date: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     start_date: Any = None
     total_collected: str | None = None
     total_due: str | None = None
@@ -1634,25 +1535,17 @@ class OrderKpis(Dto):
 class OrderCustomObject(Dto):
     """One custom object with the order's instances of it, under ``custom_object``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/orders/{order_id}/custom_objects/{custom_object_id}",
-        "GET /api/{api_version}/orders/{order_id}/custom_objects_instances/{custom_object_id}",
-    )
 
     ENVELOPE_KEY = "custom_object"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     custom_component: Any = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
     instances: list[Any] | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -1665,7 +1558,6 @@ class OrderCustomObject(Dto):
 class OrderItemFulfillment(Dto):
     """What ``get_order_item_fulfillment`` answers, under ``item_fulfillment``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/item_fulfillments/{fulfillment_id}",)
 
     ENVELOPE_KEY = "item_fulfillment"
 
@@ -1674,11 +1566,9 @@ class OrderItemFulfillment(Dto):
     created_by: OrderItemFulfillmentCreatedBy | None = None
     created_on: str | None = None
     custom_attributes: dict[str, Any] | None = None
-    # Null in every record measured, so untyped.
     delivery_status: Any = None
     fulfillment_completed: bool | None = None
     fulfillment_date: str | None = None
-    # Null in every record measured, so untyped.
     fulfillment_note: Any = None
     fulfillment_status: str | None = None
     fulfillments: list[OrderItemFulfillmentFulfillment] | None = None
@@ -1688,7 +1578,6 @@ class OrderItemFulfillment(Dto):
     last_updated_by: OrderItemFulfillmentLastUpdatedBy | None = None
     last_updated_on: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     order: Any = None
     status: str | None = None
     tracking_number: str | None = None
@@ -1698,7 +1587,6 @@ class OrderItemFulfillment(Dto):
 class OrderPayment(Dto):
     """What ``get_order_payment`` answers, under ``payment``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/payments/{payment_id}",)
 
     ENVELOPE_KEY = "payment"
 
@@ -1710,12 +1598,9 @@ class OrderPayment(Dto):
     gift_certificate_applied: list[Any] | None = None
     id: str | None = None
     invoices: list[OrderPaymentInvoice] | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     payment_applied: list[OrderPaymentPaymentApplied] | None = None
     payment_note: str | None = None
@@ -1727,7 +1612,6 @@ class OrderPayment(Dto):
 class OrderQuotePartialInvoices(Dto):
     """What ``get_order_quote_partial_invoices`` answers, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/orders/{order_id}/quote_partial_invoices",)
 
     ENVELOPE_KEY = "order"
 
@@ -1758,17 +1642,13 @@ class OrderItemFulfillmentFulfillment(Dto):
     fulfillment_qty: float | None = None
     fulfillment_sent_qty: float | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     inventory_tracking: Any = None
     item: OrderItemFulfillmentFulfillmentItem | None = None
     object: str | None = None
     pending_return: float | None = None
-    # Null in every record measured, so untyped.
     returned: Any = None
     serving_status: str | None = None
-    # Null in every record measured, so untyped.
     uom: Any = None
-    # Null in every record measured, so untyped.
     uom_precision: Any = None
 
 
@@ -1828,7 +1708,6 @@ class OrderPaymentPaymentApplied(Dto):
     """One entry of a :class:`OrderPayment`'s ``payment_applied``."""
 
     amount: str | None = None
-    # Null in every record measured, so untyped.
     gateway_response: Any = None
     method: str | None = None
     processor: str | None = None

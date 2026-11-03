@@ -137,7 +137,7 @@ def get_account(
     raise_on_error: bool | None = None,
     response_format: str | None = None,
 ) -> ApiResponse[Account]:
-    """Retrieve one account - ``GET /accounts/{account_id}``. Pass the ``id`` (``"W13ZGY"``), not
+    """Retrieve one account - ``GET /accounts/{account_id}``. Pass the ``id`` (``"your-account-id"``), not
     the ``uuid``, which answers ``404``."""
     return client.send_get_request(
         accounts_urls.ACCOUNT,
@@ -745,7 +745,7 @@ def get_account_custom_object_instance(
 ) -> ApiResponse:
     """One custom object instance -
     ``GET /accounts/{account_id}/custom_objects/{custom_object_id}/instances/{custom_object_instance_id}``,
-    the ``coi_`` id, under ``custom_object_instance``. Never measured, so no typed view."""
+    the ``coi_`` id, under ``custom_object_instance``. No typed view."""
     return client.send_get_request(
         accounts_urls.ACCOUNT_CUSTOM_OBJECT_INSTANCE_OF,
         path_params={
@@ -1232,7 +1232,7 @@ def create_account_custom_object_instance(
 ) -> ApiResponse:
     """Create a custom object instance on an account -
     ``POST /accounts/{account_id}/custom_objects/{custom_object_id}``, the schema's ``co_`` id.
-    Answers ``custom_object_instance``, unmeasured, so no typed view."""
+    Answers ``custom_object_instance``. No typed view."""
     _require_payload(payload)
     return client.send_post_request(
         accounts_urls.ACCOUNT_CUSTOM_OBJECT,

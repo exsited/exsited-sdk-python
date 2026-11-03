@@ -35,7 +35,6 @@ __all__ = [
 class PurchaseCreditNote(Dto):
     """The purchase credit note body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_credit_notes",)
 
     account: PurchaseCreditNoteAccount | None = None
     amount: str | None = None
@@ -67,7 +66,6 @@ class PurchaseCreditNote(Dto):
 class PurchaseCreditNoteList(Dto):
     """One page of ``PurchaseCreditNote`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_credit_notes",)
 
     data: list[PurchaseCreditNote] | None = None
     object: str | None = None
@@ -78,10 +76,6 @@ class PurchaseCreditNoteList(Dto):
 class PurchaseCreditNoteRead(Dto):
     """The purchase credit note read body, under ``purchase_credit_note``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_credit_notes/{purchase_credit_note_id}",
-        "PATCH /api/{api_version}/purchase_credit_notes/{purchase_credit_note_id}",
-    )
 
     ENVELOPE_KEY = "purchase_credit_note"
 
@@ -262,11 +256,9 @@ class PurchaseCreditNoteCreated(Dto):
     """What ``create_purchase_credit_note`` answers, under ``purchase_credit_note``: a shorter body
     than the reads, and ``status`` an object where they send a string."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/purchase_credit_notes",)
 
     ENVELOPE_KEY = "purchase_credit_note"
 
-    # Empty in every record measured, so its entries are untyped.
     activity_logs: list[Any] | None = None
     code: str | None = None
     href: str | None = None

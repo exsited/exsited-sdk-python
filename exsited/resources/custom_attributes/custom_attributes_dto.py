@@ -22,15 +22,9 @@ __all__ = [
 class CustomAttribute(Dto):
     """The custom attribute body, under ``custom_attribute``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/custom_attributes",
-        "GET /api/{api_version}/custom_attributes/{custom_attribute_id}",
-        "PATCH /api/{api_version}/custom_attributes/{custom_attribute_id}",
-    )
 
     ENVELOPE_KEY = "custom_attribute"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -38,31 +32,22 @@ class CustomAttribute(Dto):
     encrypt_data: bool | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     include_seconds: Any = None
     is_mandatory: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     max_length: int | None = None
-    # Null in every record measured, so untyped.
     max_size: Any = None
-    # Null in every record measured, so untyped.
     max_value: Any = None
-    # Null in every record measured, so untyped.
     meta_data: Any = None
-    # Null in every record measured, so untyped.
     min_value: Any = None
     name: str | None = None
     object: str | None = None
     options: list[CustomAttributeOption] | None = None
     status: str | None = None
-    # Null in every record measured, so untyped.
     time_format: Any = None
     type: str | None = None
-    # Null in every record measured, so untyped.
     unit: Any = None
-    # Null in every record measured, so untyped.
     uom: Any = None
     use_in: list[CustomAttributeUseIn] | None = None
     version: int | None = None
@@ -71,7 +56,6 @@ class CustomAttribute(Dto):
 class CustomAttributeList(Dto):
     """One page of ``CustomAttribute`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/custom_attributes",)
 
     data: list[CustomAttribute] | None = None
     object: str | None = None
@@ -82,12 +66,10 @@ class CustomAttributeList(Dto):
 class CustomAttributes(Dto):
     """The custom attributes body, under ``custom_attribute``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/custom_attributes",)
 
     ENVELOPE_KEY = "custom_attribute"
 
     activity_logs: list[CustomAttributesActivityLog] | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -95,30 +77,22 @@ class CustomAttributes(Dto):
     encrypt_data: bool | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     include_seconds: Any = None
     is_mandatory: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     max_length: int | None = None
-    # Null in every record measured, so untyped.
     max_size: Any = None
-    # Null in every record measured, so untyped.
     max_value: Any = None
     meta_data: str | None = None
-    # Null in every record measured, so untyped.
     min_value: Any = None
     name: str | None = None
     object: str | None = None
     options: list[CustomAttributesOption] | None = None
     status: str | None = None
-    # Null in every record measured, so untyped.
     time_format: Any = None
     type: str | None = None
-    # Null in every record measured, so untyped.
     unit: Any = None
-    # Null in every record measured, so untyped.
     uom: Any = None
     use_in: list[CustomAttributesUseIn] | None = None
     uuid: str | None = None

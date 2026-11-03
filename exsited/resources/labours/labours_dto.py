@@ -68,15 +68,6 @@ __all__ = [
 class Labour(Dto):
     """The labour body, under ``labour``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/labours",
-        "GET /api/{api_version}/labours/available_for_booking",
-        "GET /api/{api_version}/labours/{labour_uuid}",
-        "POST /api/{api_version}/labours",
-        "PATCH /api/{api_version}/labours/{labour_uuid}",
-        "POST /api/{api_version}/labours/{labour_id}/cancel",
-        "POST /api/{api_version}/labours/{labour_id}/reactivate",
-    )
 
     ENVELOPE_KEY = "labour"
 
@@ -90,7 +81,6 @@ class Labour(Dto):
     email_address: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     image_name: Any = None
     labour_availability: list[Any] | None = None
     labour_contacts: list[LabourLabourContact] | None = None
@@ -108,10 +98,6 @@ class Labour(Dto):
 class LabourList(Dto):
     """One page of ``Labour`` records, under ``data``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/labours",
-        "GET /api/{api_version}/labours/available_for_booking",
-    )
 
     data: list[Labour] | None = None
     object: str | None = None
@@ -122,7 +108,6 @@ class LabourList(Dto):
 class LabourProfile(Dto):
     """The labour profile body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/labour_profiles",)
 
     created_by: LabourProfileCreatedBy | None = None
     created_on: str | None = None
@@ -133,7 +118,6 @@ class LabourProfile(Dto):
     labours: list[LabourProfileRow] | None = None
     last_updated_by: LabourProfileLastUpdatedBy | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     max_booking_limit: Any = None
     name: str | None = None
     object: str | None = None
@@ -147,7 +131,6 @@ class LabourProfile(Dto):
 class LabourProfileList(Dto):
     """One page of ``LabourProfile`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/labour_profiles",)
 
     data: list[LabourProfile] | None = None
     object: str | None = None
@@ -158,7 +141,6 @@ class LabourProfileList(Dto):
 class LabourAvailability(Dto):
     """The labour availability body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/labour_availability",)
 
     available_list: list[Any] | None = None
     code: str | None = None
@@ -180,7 +162,6 @@ class LabourAvailability(Dto):
 class LabourAvailabilityList(Dto):
     """One page of ``LabourAvailability`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/labour_availability",)
 
     data: list[LabourAvailability] | None = None
     object: str | None = None
@@ -192,7 +173,6 @@ class LabourCalendar(LabourAvailability):
     """What ``get_labour_calendar`` answers, under ``labour_calendar``: a
     :class:`LabourAvailability` record for one labour."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/labours/{labour_id}/availability",)
 
     ENVELOPE_KEY = "labour_calendar"
 
@@ -200,10 +180,6 @@ class LabourCalendar(LabourAvailability):
 class LabourProfileView(Dto):
     """What ``get_labour_profile`` answers, under ``labour_profile``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/labour_profiles/{labour_profile_id}",
-        "POST /api/{api_version}/labour_profiles",
-    )
 
     ENVELOPE_KEY = "labour_profile"
 
@@ -230,7 +206,6 @@ class LabourProfileView(Dto):
 class LabourOrderList(Dto):
     """One page of what ``get_labour_orders`` lists, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/labours/{labour_uuid}/orders",)
 
     data: list[LabourOrder] | None = None
     object: str | None = None
@@ -286,7 +261,6 @@ class LabourProfileSessionList(Dto):
     """One page of a labour profile's sessions, under ``data``, each a
     :class:`LabourProfileViewSession`."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/labour_profiles/{labour_profile_id}/sessions",)
 
     data: list[LabourProfileViewSession] | None = None
     object: str | None = None
@@ -297,9 +271,6 @@ class LabourProfileSessionList(Dto):
 class LabourProfileSessionView(LabourProfileViewSession):
     """What ``get_labour_profile_session`` answers, under ``labour_profile_session``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/labour_profiles/{labour_profile_id}/sessions/{session_id}",
-    )
 
     ENVELOPE_KEY = "labour_profile_session"
 
@@ -357,7 +328,6 @@ class LabourLabourContact(Dto):
     first_name: str | None = None
     id: str | None = None
     last_name: str | None = None
-    # Null in every record measured, so untyped.
     middle_name: Any = None
     mobile: LabourLabourContactMobile | None = None
     object: str | None = None
@@ -403,52 +373,38 @@ class LabourOrder(Dto):
 
     account: LabourOrderAccount | None = None
     allow_contract: bool | None = None
-    # Null in every record measured, so untyped.
     billing_address: Any = None
     billing_preferences: LabourOrderBillingPreferences | None = None
     billing_start_date: str | None = None
     communication_preferences: list[LabourOrderCommunicationPreference] | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: LabourOrderCurrency | None = None
     custom_form: LabourOrderCustomForm | None = None
-    # Null in every record measured, so untyped.
     customer_purchase_order_id: Any = None
-    # Null in every record measured, so untyped.
     description: Any = None
-    # Null in every record measured, so untyped.
     discount_profile: Any = None
     display_name: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     invoice_note: Any = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     manager: Any = None
     name: str | None = None
     next_billing_from_date: str | None = None
     object: str | None = None
     order_start_date: str | None = None
     order_type: str | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
-    # Null in every record measured, so untyped.
     original_total: Any = None
     pre_order: bool | None = None
     price_tax_inclusive: bool | None = None
     quote_converted: bool | None = None
     quote_order: bool | None = None
-    # Null in every record measured, so untyped.
     referral_account: Any = None
-    # Null in every record measured, so untyped.
     sales_rep: Any = None
-    # Null in every record measured, so untyped.
     shipping_address: Any = None
     shipping_cost: float | None = None
-    # Null in every record measured, so untyped.
     shipping_profile: Any = None
     status: str | None = None
     time_zone: LabourOrderTimeZone | None = None
@@ -744,13 +700,10 @@ class LabourProfileViewSessionPriceHour(Dto):
 class LabourOrderBillingPreferencesProformaProperties(Dto):
     """A :class:`LabourOrderBillingPreferences`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 

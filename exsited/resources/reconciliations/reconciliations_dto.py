@@ -1,5 +1,4 @@
-"""Typed views over the reconciliation bodies: none, since no reconciliation was
-available to measure."""
+"""Typed views over the reconciliation bodies: none."""
 
 from __future__ import annotations
 

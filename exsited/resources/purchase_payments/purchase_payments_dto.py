@@ -86,7 +86,6 @@ __all__ = [
 class PurchasePayment(Dto):
     """The purchase payment body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_payments",)
 
     account: PurchasePaymentAccount | None = None
     code: str | None = None
@@ -107,7 +106,6 @@ class PurchasePayment(Dto):
     payment_date: str | None = None
     payment_method_applications: list[PurchasePaymentPaymentMethodApplication] | None = None
     payment_note: str | None = None
-    # Null in every record measured, so untyped.
     payment_reference: Any = None
     purchase_credit_applied: list[Any] | None = None
     purchase_invoice_applications: list[PurchasePaymentPurchaseInvoiceApplication] | None = None
@@ -125,7 +123,6 @@ class PurchasePayment(Dto):
 class PurchasePaymentList(Dto):
     """One page of ``PurchasePayment`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_payments",)
 
     data: list[PurchasePayment] | None = None
     object: str | None = None
@@ -136,11 +133,6 @@ class PurchasePaymentList(Dto):
 class PurchasePaymentRead(Dto):
     """The purchase payment read body, under ``purchase_payment``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_invoices/{purchase_invoice_id}/purchase_payments",
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_payments",
-        "GET /api/{api_version}/purchase_payments/{purchase_payment_id}",
-    )
 
     ENVELOPE_KEY = "purchase_payment"
 
@@ -161,7 +153,6 @@ class PurchasePaymentRead(Dto):
     payment_date: str | None = None
     payment_method_applications: list[PurchasePaymentReadPaymentMethodApplication] | None = None
     payment_note: str | None = None
-    # Null in every record measured, so untyped.
     payment_reference: Any = None
     purchase_invoice_applications: list[PurchasePaymentReadPurchaseInvoiceApplication] | None = None
     status: str | None = None
@@ -171,23 +162,18 @@ class PurchasePaymentRead(Dto):
 class PurchasePaymentNote(Dto):
     """The purchase payment note body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_payments/{purchase_payment_id}/notes",)
 
     attachments: list[PurchasePaymentNoteAttachment] | None = None
     content: str | None = None
     created_by: PurchasePaymentNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     purchase_payment: PurchasePaymentNoteDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PurchasePaymentNoteWatcher] | None = None
@@ -196,7 +182,6 @@ class PurchasePaymentNote(Dto):
 class PurchasePaymentNoteList(Dto):
     """One page of ``PurchasePaymentNote`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_payments/{purchase_payment_id}/notes",)
 
     data: list[PurchasePaymentNote] | None = None
     object: str | None = None
@@ -207,7 +192,6 @@ class PurchasePaymentNoteList(Dto):
 class PurchasePaymentUpdated(Dto):
     """The purchase payment updated body, under ``purchase_payment``."""
 
-    MEASURED_FROM = ("PATCH /api/{api_version}/purchase_payments/{purchase_payment_id}",)
 
     ENVELOPE_KEY = "purchase_payment"
 
@@ -231,7 +215,6 @@ class PurchasePaymentUpdated(Dto):
     payment_date: str | None = None
     payment_method_applications: list[PurchasePaymentUpdatedPaymentMethodApplication] | None = None
     payment_note: str | None = None
-    # Null in every record measured, so untyped.
     payment_reference: Any = None
     purchase_credit_applied: list[Any] | None = None
     purchase_invoice_applications: list[PurchasePaymentUpdatedPurchaseInvoiceApplication] | None = (
@@ -251,10 +234,6 @@ class PurchasePaymentUpdated(Dto):
 class PurchasePayments(Dto):
     """The purchase payments body, under ``purchase_payment``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/purchase_invoices/{purchase_invoice_id}/purchase_payments",
-        "POST /api/{api_version}/purchase_payments",
-    )
 
     ENVELOPE_KEY = "purchase_payment"
 
@@ -278,7 +257,6 @@ class PurchasePayments(Dto):
     payment_date: str | None = None
     payment_method_applications: list[PurchasePaymentsPaymentMethodApplication] | None = None
     payment_note: str | None = None
-    # Null in every record measured, so untyped.
     payment_reference: Any = None
     purchase_credit_applied: list[Any] | None = None
     purchase_invoice_applications: list[PurchasePaymentsPurchaseInvoiceApplication] | None = None
@@ -296,7 +274,6 @@ class PurchasePayments(Dto):
 class AccountPurchasePayments(Dto):
     """The account purchase payments body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/accounts/{account_id}/purchase_payments",)
 
     data: list[PurchasePayment] | None = None
     object: str | None = None
@@ -307,7 +284,6 @@ class AccountPurchasePayments(Dto):
 class PurchasePaymentNotes(Dto):
     """The purchase payment notes body, under ``files``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/purchase_payments/{purchase_payment_id}/notes",)
 
     ENVELOPE_KEY = "files"
 
@@ -321,10 +297,6 @@ class PurchasePaymentNotes(Dto):
 class PurchasePaymentNoteRead(Dto):
     """The purchase payment note read body, under ``purchase_payment``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_payments/{purchase_payment_id}/notes/{pp_note_id}",
-        "GET /api/{api_version}/purchase_payments/{purchase_payment_id}/notes/{pp_note_id}/files",
-    )
 
     ENVELOPE_KEY = "purchase_payment"
 
@@ -338,9 +310,6 @@ class PurchasePaymentNoteRead(Dto):
 class PurchasePaymentNoteFile(Dto):
     """What ``get_purchase_payment_note_file`` answers, under ``file``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_payments/{purchase_payment_id}/notes/{pp_note_id}/files/{file_id}",
-    )
 
     ENVELOPE_KEY = "file"
 
@@ -419,17 +388,13 @@ class PurchasePaymentNoteReadDetail(Dto):
     content: str | None = None
     created_by: PurchasePaymentNoteReadDetailCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     purchase_payment: PurchasePaymentNoteReadDetailPurchasePayment | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PurchasePaymentNoteReadDetailWatcher] | None = None
@@ -531,7 +496,6 @@ class PurchasePaymentUpdatedPaymentMethodApplication(Dto):
     amount: str | None = None
     payment_method: PurchasePaymentUpdatedPaymentMethodApplicationDetail | None = None
     payment_processor: PurchasePaymentUpdatedPaymentMethodApplicationPaymentProcessor | None = None
-    # Null in every record measured, so untyped.
     reference: Any = None
 
 
@@ -567,17 +531,13 @@ class PurchasePaymentNotesNote(Dto):
     content: str | None = None
     created_by: PurchasePaymentNotesNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     purchase_payment: PurchasePaymentNotesNoteDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PurchasePaymentNotesNoteWatcher] | None = None
@@ -881,9 +841,6 @@ class PurchasePaymentPurchaseInvoiceApplicationDetail(Dto):
 class PurchasePaymentNoteUpdated(Dto):
     """What ``update_purchase_payment_note`` answers, under ``note``."""
 
-    MEASURED_FROM = (
-        "PATCH /api/{api_version}/purchase_payments/{purchase_payment_id}/notes/{pp_note_id}",
-    )
 
     ENVELOPE_KEY = "note"
 
@@ -891,7 +848,6 @@ class PurchasePaymentNoteUpdated(Dto):
     content: str | None = None
     created_by: PurchasePaymentNoteUpdatedUser | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
@@ -899,10 +855,8 @@ class PurchasePaymentNoteUpdated(Dto):
     last_updated_on: str | None = None
     object: str | None = None
     purchase_payment: PurchasePaymentNoteUpdatedPurchasePayment | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
-    # Empty in every record measured, so its entries are untyped.
     watchers: list[Any] | None = None
 
 

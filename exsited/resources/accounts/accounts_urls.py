@@ -1,5 +1,5 @@
 """Path templates, body keys and query names for the account endpoints. ``{account_id}`` is the
-record's ``id`` (``"W13ZGY"``), never its ``uuid``; ``set-password`` is the one hyphenated path."""
+record's ``id`` (``"your-account-id"``), never its ``uuid``; ``set-password`` is the one hyphenated path."""
 
 from __future__ import annotations
 

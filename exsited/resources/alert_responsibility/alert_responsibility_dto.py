@@ -17,12 +17,6 @@ class AlertResponsibility(Dto):
     """The alert responsibility body, under ``alert_responsibility``; ``activity_logs`` comes on
     the create answer only."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/alert_responsibility",
-        "GET /api/{api_version}/alert_responsibility/{alert_responsibility_id}",
-        "POST /api/{api_version}/alert_responsibility",
-        "PATCH /api/{api_version}/alert_responsibility/{alert_responsibility_id}",
-    )
 
     ENVELOPE_KEY = "alert_responsibility"
 
@@ -41,7 +35,6 @@ class AlertResponsibility(Dto):
 class AlertResponsibilityList(Dto):
     """One page of ``AlertResponsibility`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/alert_responsibility",)
 
     data: list[AlertResponsibility] | None = None
     object: str | None = None

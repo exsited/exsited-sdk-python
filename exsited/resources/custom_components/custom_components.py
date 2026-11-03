@@ -438,8 +438,7 @@ def get_component_object_milestones(
     response_format: str | None = None,
 ) -> ApiResponse:
     """List workflow milestones -
-    ``GET /components/{component_uuid}/objects/{component_object_id}/milestones``; every listing
-    measured was empty, so ``.dto`` is None."""
+    ``GET /components/{component_uuid}/objects/{component_object_id}/milestones``; ``.dto`` is None."""
     return client.send_get_request(
         custom_components_urls.COMPONENT_OBJECT_MILESTONES,
         path_params={"component_uuid": component_uuid, "component_object_id": component_object_id},
@@ -483,8 +482,7 @@ def get_component_object_history(
     response_format: str | None = None,
 ) -> ApiResponse:
     """List workflow history -
-    ``GET /components/{component_uuid}/objects/{component_object_id}/history``; every listing
-    measured was empty, so ``.dto`` is None."""
+    ``GET /components/{component_uuid}/objects/{component_object_id}/history``; ``.dto`` is None."""
     return client.send_get_request(
         custom_components_urls.COMPONENT_OBJECT_HISTORY,
         path_params={"component_uuid": component_uuid, "component_object_id": component_object_id},

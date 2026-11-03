@@ -21,7 +21,6 @@ __all__ = [
 class QuoteOrderInvoiceList(Dto):
     """One page of a quote's invoices, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/quote_orders/{quote_order_id}/invoices",)
 
     data: list[QuoteOrderInvoice] | None = None
     object: str | None = None
@@ -43,24 +42,18 @@ class QuoteOrderInvoice(Dto):
     created_on: str | None = None
     currency: QuoteOrderInvoiceCurrency | None = None
     custom_form: QuoteOrderInvoiceCustomForm | None = None
-    # Null in every record measured, so untyped.
     customer_purchase_order_id: Any = None
     discount_amount: float | None = None
     due: str | None = None
     due_date: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     invoice_note: Any = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_payment: Any = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     order: QuoteOrderInvoiceOrder | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     paid: str | None = None
     payment_status: str | None = None

@@ -126,7 +126,6 @@ __all__ = [
 class PurchaseOrderLine(Dto):
     """The purchase order line body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/{purchase_order_id}/lines",)
 
     created_on: str | None = None
     flat_discount: float | None = None
@@ -138,7 +137,6 @@ class PurchaseOrderLine(Dto):
     item_accounting_code: PurchaseOrderLineItemAccountingCode | None = None
     item_discount_amount: float | None = None
     item_expected_completion_date: str | None = None
-    # Null in every record measured, so untyped.
     item_invoice_note: Any = None
     item_price_snapshot: PurchaseOrderLineItemPriceSnapshot | None = None
     item_price_tax: PurchaseOrderLineItemPriceTax | None = None
@@ -149,7 +147,6 @@ class PurchaseOrderLine(Dto):
     name: str | None = None
     object: str | None = None
     price: float | None = None
-    # Null in every record measured, so untyped.
     purchase_line_note: Any = None
     quantity: int | None = None
     sort_index: int | None = None
@@ -166,7 +163,6 @@ class PurchaseOrderLine(Dto):
 class PurchaseOrderLineList(Dto):
     """One page of ``PurchaseOrderLine`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/{purchase_order_id}/lines",)
 
     data: list[PurchaseOrderLine] | None = None
     object: str | None = None
@@ -177,7 +173,6 @@ class PurchaseOrderLineList(Dto):
 class PurchaseOrder(Dto):
     """The purchase order body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders",)
 
     account: PurchaseOrderAccount | None = None
     bill_total: str | None = None
@@ -201,7 +196,6 @@ class PurchaseOrder(Dto):
     origin: str | None = None
     paid_amount: str | None = None
     purchase_order_note: str | None = None
-    # Null in every record measured, so untyped.
     sale_order: Any = None
     status: str | None = None
     subtotal: str | None = None
@@ -209,14 +203,12 @@ class PurchaseOrder(Dto):
     tax_total: str | None = None
     total: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     warehouse: Any = None
 
 
 class PurchaseOrderList(Dto):
     """One page of ``PurchaseOrder`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders",)
 
     data: list[PurchaseOrder] | None = None
     object: str | None = None
@@ -227,9 +219,6 @@ class PurchaseOrderList(Dto):
 class PurchaseOrderPurchaseInvoice(Dto):
     """The purchase order purchase invoice body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_invoices",
-    )
 
     account: PurchaseOrderPurchaseInvoiceAccount | None = None
     alternate_due_date: str | None = None
@@ -237,7 +226,6 @@ class PurchaseOrderPurchaseInvoice(Dto):
     created_by: PurchaseOrderPurchaseInvoiceCreatedBy | None = None
     created_on: str | None = None
     currency: PurchaseOrderPurchaseInvoiceCurrency | None = None
-    # Null in every record measured, so untyped.
     custom_form: Any = None
     due_date: str | None = None
     id: str | None = None
@@ -260,9 +248,6 @@ class PurchaseOrderPurchaseInvoice(Dto):
 class PurchaseOrderPurchaseInvoiceList(Dto):
     """One page of ``PurchaseOrderPurchaseInvoice`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_invoices",
-    )
 
     data: list[PurchaseOrderPurchaseInvoice] | None = None
     object: str | None = None
@@ -273,9 +258,6 @@ class PurchaseOrderPurchaseInvoiceList(Dto):
 class PurchaseOrderPurchasePayment(Dto):
     """The purchase order purchase payment body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_payments",
-    )
 
     account: PurchaseOrderPurchasePaymentAccount | None = None
     code: str | None = None
@@ -296,7 +278,6 @@ class PurchaseOrderPurchasePayment(Dto):
         list[PurchaseOrderPurchasePaymentPaymentMethodApplication] | None
     ) = None
     payment_note: str | None = None
-    # Null in every record measured, so untyped.
     payment_reference: Any = None
     purchase_invoice_applications: (
         list[PurchaseOrderPurchasePaymentPurchaseInvoiceApplication] | None
@@ -308,9 +289,6 @@ class PurchaseOrderPurchasePayment(Dto):
 class PurchaseOrderPurchasePaymentList(Dto):
     """One page of ``PurchaseOrderPurchasePayment`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_payments",
-    )
 
     data: list[PurchaseOrderPurchasePayment] | None = None
     object: str | None = None
@@ -321,22 +299,17 @@ class PurchaseOrderPurchasePaymentList(Dto):
 class PurchaseOrdersNote(Dto):
     """The purchase orders note body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/notes",)
 
     attachments: list[Any] | None = None
     content: str | None = None
     created_by: PurchaseOrdersNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PurchaseOrdersNoteWatcher] | None = None
@@ -345,7 +318,6 @@ class PurchaseOrdersNote(Dto):
 class PurchaseOrdersNoteList(Dto):
     """One page of ``PurchaseOrdersNote`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/notes",)
 
     data: list[PurchaseOrdersNote] | None = None
     object: str | None = None
@@ -356,12 +328,6 @@ class PurchaseOrdersNoteList(Dto):
 class PurchaseOrderRead(Dto):
     """The purchase order read body, under ``purchase_order``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}",
-        "POST /api/{api_version}/purchase_orders/{purchase_order_id}/change",
-        "POST /api/{api_version}/purchase_orders/{purchase_order_id}/cancel",
-        "POST /api/{api_version}/purchase_orders/{purchase_order_id}/reactivate",
-    )
 
     ENVELOPE_KEY = "purchase_order"
 
@@ -389,7 +355,6 @@ class PurchaseOrderRead(Dto):
     origin: str | None = None
     paid_amount: str | None = None
     purchase_order_note: str | None = None
-    # Null in every record measured, so untyped.
     sale_order: Any = None
     status: str | None = None
     subtotal: str | None = None
@@ -397,14 +362,12 @@ class PurchaseOrderRead(Dto):
     tax_total: str | None = None
     total: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     warehouse: Any = None
 
 
 class PurchaseOrderUpdated(Dto):
     """The purchase order updated body, under ``purchase_order``."""
 
-    MEASURED_FROM = ("PATCH /api/{api_version}/purchase_orders/{purchase_order_id}",)
 
     ENVELOPE_KEY = "purchase_order"
 
@@ -424,7 +387,6 @@ class PurchaseOrderUpdated(Dto):
     expected_completion_date: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     is_price_tax_inclusive: Any = None
     issue_date: str | None = None
     kpis: PurchaseOrderUpdatedKpis | None = None
@@ -437,7 +399,6 @@ class PurchaseOrderUpdated(Dto):
     paid_amount: str | None = None
     price_tax_inclusive: str | None = None
     purchase_order_note: str | None = None
-    # Null in every record measured, so untyped.
     sale_order: Any = None
     sale_order_id: str | None = None
     status: str | None = None
@@ -448,14 +409,12 @@ class PurchaseOrderUpdated(Dto):
     total: str | None = None
     uuid: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     warehouse: Any = None
 
 
 class PurchaseOrders(Dto):
     """The purchase orders body, under ``purchase_order``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/purchase_orders",)
 
     ENVELOPE_KEY = "purchase_order"
 
@@ -475,7 +434,6 @@ class PurchaseOrders(Dto):
     expected_completion_date: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     is_price_tax_inclusive: Any = None
     issue_date: str | None = None
     kpis: PurchaseOrdersKpis | None = None
@@ -488,7 +446,6 @@ class PurchaseOrders(Dto):
     paid_amount: str | None = None
     price_tax_inclusive: str | None = None
     purchase_order_note: str | None = None
-    # Null in every record measured, so untyped.
     sale_order: Any = None
     status: str | None = None
     subtotal: str | None = None
@@ -498,14 +455,12 @@ class PurchaseOrders(Dto):
     total: str | None = None
     uuid: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     warehouse: Any = None
 
 
 class PurchaseOrderInformation(Dto):
     """The purchase order information body, under ``purchase_order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/{purchase_order_id}/information",)
 
     ENVELOPE_KEY = "purchase_order"
 
@@ -540,7 +495,6 @@ class PurchaseOrderInformation(Dto):
 class AccountPurchaseOrders(Dto):
     """The account purchase orders body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/accounts/{account_id}/purchase_orders",)
 
     data: list[PurchaseOrder] | None = None
     object: str | None = None
@@ -551,7 +505,6 @@ class AccountPurchaseOrders(Dto):
 class PurchaseOrderNotes(Dto):
     """The purchase order notes body, under ``purchase_order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes",)
 
     ENVELOPE_KEY = "purchase_order"
 
@@ -565,10 +518,6 @@ class PurchaseOrderNotes(Dto):
 class PurchaseOrderNote(Dto):
     """The purchase order note body, under ``purchase_order``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}",
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}/files",
-    )
 
     ENVELOPE_KEY = "purchase_order"
 
@@ -582,9 +531,6 @@ class PurchaseOrderNote(Dto):
 class PurchaseOrderLineRead(Dto):
     """The purchase order line read body, under ``purchase_order``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/lines/{purchase_order_line_uuid}",
-    )
 
     ENVELOPE_KEY = "purchase_order"
 
@@ -595,9 +541,6 @@ class PurchaseOrderLineRead(Dto):
 class PurchaseOrderNoteFile(Dto):
     """What ``get_purchase_order_note_file`` answers, under ``file``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}/files/{purchase_order_file_id}",
-    )
 
     ENVELOPE_KEY = "file"
 
@@ -611,7 +554,6 @@ class PurchaseOrderNoteFile(Dto):
 class PurchaseOrderNotesView(Dto):
     """What ``create_purchase_order_note`` answers, under ``note``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/purchase_orders/{purchase_order_id}/notes",)
 
     ENVELOPE_KEY = "note"
 
@@ -619,17 +561,13 @@ class PurchaseOrderNotesView(Dto):
     content: str | None = None
     created_by: PurchaseOrderNotesViewCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     purchase_order: PurchaseOrderNotesViewDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PurchaseOrderNotesViewWatcher] | None = None
@@ -638,9 +576,6 @@ class PurchaseOrderNotesView(Dto):
 class PurchaseOrderPurchaseInvoices(Dto):
     """What ``create_purchase_order_purchase_invoice`` answers, under ``purchase_invoice``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_invoices",
-    )
 
     ENVELOPE_KEY = "purchase_invoice"
 
@@ -652,19 +587,15 @@ class PurchaseOrderPurchaseInvoices(Dto):
     created_on: str | None = None
     currency: PurchaseOrderPurchaseInvoicesCurrency | None = None
     custom_attributes: list[Any] | None = None
-    # Null in every record measured, so untyped.
     custom_form: Any = None
     due_date: str | None = None
     id: str | None = None
     issue_date: str | None = None
     kpis: PurchaseOrderPurchaseInvoicesKpis | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     lines: list[PurchaseOrderPurchaseInvoicesLine] | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     payment_status: str | None = None
     price_tax_inclusive: bool | None = None
@@ -721,18 +652,12 @@ class PurchaseOrderReadKpis(Dto):
     """A :class:`PurchaseOrderRead`'s ``kpis``."""
 
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     issue_date: Any = None
-    # Null in every record measured, so untyped.
     last_cancelled_on: Any = None
-    # Null in every record measured, so untyped.
     last_changed_on: Any = None
-    # Null in every record measured, so untyped.
     last_deleted_on: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_on: Any = None
     object: str | None = None
     total_expense: str | None = None
@@ -802,7 +727,6 @@ class PurchaseOrderLineReadDetail(Dto):
     item_accounting_code: PurchaseOrderLineReadDetailItemAccountingCode | None = None
     item_discount_amount: float | None = None
     item_expected_completion_date: str | None = None
-    # Null in every record measured, so untyped.
     item_invoice_note: Any = None
     item_price_snapshot: PurchaseOrderLineReadDetailItemPriceSnapshot | None = None
     item_price_tax: PurchaseOrderLineReadDetailItemPriceTax | None = None
@@ -817,7 +741,6 @@ class PurchaseOrderLineReadDetail(Dto):
     name: str | None = None
     object: str | None = None
     price: float | None = None
-    # Null in every record measured, so untyped.
     purchase_line_note: Any = None
     quantity: int | None = None
     sort_index: int | None = None
@@ -838,17 +761,13 @@ class PurchaseOrderNotesData(Dto):
     content: str | None = None
     created_by: PurchaseOrderNotesDataCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     purchase_order: PurchaseOrderNotesDataDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PurchaseOrderNotesDataWatcher] | None = None
@@ -861,17 +780,13 @@ class PurchaseOrderNoteDetail(Dto):
     content: str | None = None
     created_by: PurchaseOrderNoteDetailCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     purchase_order: PurchaseOrderNoteDetailPurchaseOrder | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PurchaseOrderNoteDetailWatcher] | None = None
@@ -920,18 +835,12 @@ class PurchaseOrdersKpis(Dto):
     """A :class:`PurchaseOrders`'s ``kpis``."""
 
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     issue_date: Any = None
-    # Null in every record measured, so untyped.
     last_cancelled_on: Any = None
-    # Null in every record measured, so untyped.
     last_changed_on: Any = None
-    # Null in every record measured, so untyped.
     last_deleted_on: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_on: Any = None
     object: str | None = None
     total_expense: str | None = None
@@ -980,18 +889,12 @@ class PurchaseOrderUpdatedKpis(Dto):
     """A :class:`PurchaseOrderUpdated`'s ``kpis``."""
 
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     issue_date: Any = None
-    # Null in every record measured, so untyped.
     last_cancelled_on: Any = None
-    # Null in every record measured, so untyped.
     last_changed_on: Any = None
-    # Null in every record measured, so untyped.
     last_deleted_on: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_on: Any = None
     object: str | None = None
     total_expense: str | None = None
@@ -1102,21 +1005,15 @@ class PurchaseOrderPurchaseInvoicesKpis(Dto):
 
     credit_applied: str | None = None
     credit_issued: str | None = None
-    # Null in every record measured, so untyped.
     deleted_on: Any = None
-    # Null in every record measured, so untyped.
     last_amended_on: Any = None
-    # Null in every record measured, so untyped.
     last_cancelled_on: Any = None
-    # Null in every record measured, so untyped.
     last_payment_date: Any = None
-    # Null in every record measured, so untyped.
     last_reactivated_on: Any = None
     object: str | None = None
     outstanding: str | None = None
     overdue: str | None = None
     payment_applied: str | None = None
-    # Null in every record measured, so untyped.
     voided_on: Any = None
 
 
@@ -1585,8 +1482,7 @@ class PurchaseOrderPurchasePaymentPurchaseInvoiceApplicationDetail(Dto):
 
 class PurchaseOrderKpis(PurchaseOrderReadKpis):
     """What ``get_purchase_order_kpis`` answers, under ``purchase_order_kpis``: the block a purchase
-    order carries as ``kpis``. Measured on 2 purchase orders."""
+    order carries as ``kpis``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/{purchase_order_id}/kpis",)
 
     ENVELOPE_KEY = "purchase_order_kpis"

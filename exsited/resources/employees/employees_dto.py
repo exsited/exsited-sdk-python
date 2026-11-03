@@ -23,12 +23,6 @@ __all__ = [
 class Employee(Dto):
     """The employee body, under ``employee``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/employees",
-        "GET /api/{api_version}/employees/{employee_id}",
-        "POST /api/{api_version}/employees",
-        "PATCH /api/{api_version}/employees/{employee_id}",
-    )
 
     ENVELOPE_KEY = "employee"
 
@@ -44,7 +38,6 @@ class Employee(Dto):
     email_address: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     image_uuid: Any = None
     last_updated_by: EmployeeLastUpdatedBy | None = None
     last_updated_on: str | None = None
@@ -57,7 +50,6 @@ class Employee(Dto):
 class EmployeeList(Dto):
     """One page of ``Employee`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/employees",)
 
     data: list[Employee] | None = None
     object: str | None = None
@@ -77,23 +69,17 @@ class EmployeeCustomForm(Dto):
 class EmployeeContact(Dto):
     """One entry of a :class:`Employee`'s ``contacts``."""
 
-    # Null in every record measured, so untyped.
     address: Any = None
     created_by: EmployeeContactCreatedBy | None = None
     created_on: str | None = None
     email: EmployeeContactEmail | None = None
-    # Null in every record measured, so untyped.
     fax: Any = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
-    # Null in every record measured, so untyped.
     mobile: Any = None
     name: EmployeeContactName | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     phone: Any = None
     status: str | None = None
     type: str | None = None
@@ -117,13 +103,10 @@ class EmployeeLastUpdatedBy(Dto):
 class EmployeeContactName(Dto):
     """A :class:`EmployeeContact`'s ``name``."""
 
-    # Null in every record measured, so untyped.
     designation: Any = None
     first: str | None = None
     last: str | None = None
-    # Null in every record measured, so untyped.
     middle: Any = None
-    # Null in every record measured, so untyped.
     salutation: Any = None
 
 

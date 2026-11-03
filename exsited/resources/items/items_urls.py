@@ -8,7 +8,6 @@ ITEMS = "/api/{api_version}/items"
 ITEM = "/api/{api_version}/items/{item_id}"
 ITEM_INFORMATION = "/api/{api_version}/items/{item_id}/information"
 
-#: Both answer HTTP 500. See the functions.
 ITEM_DEACTIVATE = "/api/{api_version}/items/{item_id}/deactivate"
 ITEM_REACTIVATE = "/api/{api_version}/items/{item_id}/reactivate"
 

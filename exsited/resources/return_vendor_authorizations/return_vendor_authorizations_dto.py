@@ -20,7 +20,6 @@ __all__ = [
 class ReturnVendorAuthorization(Dto):
     """One return vendor authorization, as the listing returns it."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/return_vendor_authorizations",)
 
     account: ReturnVendorAuthorizationAccount | None = None
     code: str | None = None
@@ -29,9 +28,7 @@ class ReturnVendorAuthorization(Dto):
     href: str | None = None
     id: str | None = None
     item_count: int | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     note: str | None = None
     object: str | None = None
@@ -45,7 +42,6 @@ class ReturnVendorAuthorization(Dto):
 class ReturnVendorAuthorizationList(Dto):
     """One page of ``ReturnVendorAuthorization`` records, under ``data``; paged by cursor."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/return_vendor_authorizations",)
 
     data: list[ReturnVendorAuthorization] | None = None
     object: str | None = None
@@ -57,13 +53,10 @@ class ReturnVendorAuthorizationView(ReturnVendorAuthorization):
     """What ``get_return_vendor_authorization`` answers, under ``return_vendor_authorization``:
     the listing's record with its ``lines`` and ``receive_rvas``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/return_vendor_authorizations/{rva_id}",)
 
     ENVELOPE_KEY = "return_vendor_authorization"
 
-    # Empty in every record measured, so the entries are untyped.
     lines: list[Any] | None = None
-    # Empty in every record measured, so the entries are untyped.
     receive_rvas: list[Any] | None = None
 
 

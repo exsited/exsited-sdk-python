@@ -30,12 +30,6 @@ __all__ = [
 class GiftCertificate(Dto):
     """The gift certificate body, under ``gift_certificate``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/gift_certificates",
-        "GET /api/{api_version}/gift_certificates/{gc_id}",
-        "POST /api/{api_version}/gift_certificates",
-        "PATCH /api/{api_version}/gift_certificates/{gc_id}",
-    )
 
     ENVELOPE_KEY = "gift_certificate"
 
@@ -44,7 +38,6 @@ class GiftCertificate(Dto):
     allocations: list[GiftCertificateAllocation] | None = None
     amount: str | None = None
     code: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: GiftCertificateCurrency | None = None
@@ -52,10 +45,8 @@ class GiftCertificate(Dto):
     href: str | None = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     linked_item: Any = None
     object: str | None = None
     remaining_balance: str | None = None
@@ -68,7 +59,6 @@ class GiftCertificate(Dto):
 class GiftCertificateList(Dto):
     """One page of ``GiftCertificate`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/gift_certificates",)
 
     data: list[GiftCertificate] | None = None
     object: str | None = None
@@ -79,22 +69,18 @@ class GiftCertificateList(Dto):
 class GiftCertificateTransaction(Dto):
     """The gift certificate transaction body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/gift_certificates/{gc_id}/transactions",)
 
     accounting_code: GiftCertificateTransactionAccountingCode | None = None
     amount: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: GiftCertificateTransactionCurrency | None = None
     date: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     reference: Any = None
     status: str | None = None
     type: str | None = None
@@ -104,7 +90,6 @@ class GiftCertificateTransaction(Dto):
 class GiftCertificateTransactionList(Dto):
     """One page of ``GiftCertificateTransaction`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/gift_certificates/{gc_id}/transactions",)
 
     data: list[GiftCertificateTransaction] | None = None
     object: str | None = None
@@ -115,7 +100,6 @@ class GiftCertificateTransactionList(Dto):
 class GiftCertificateAllocations(Dto):
     """The gift certificate allocations body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/gift_certificates/{gc_id}/allocations",)
 
     data: list[GiftCertificateAllocationsData] | None = None
     object: str | None = None
@@ -145,13 +129,11 @@ class GiftCertificateAllocation(Dto):
     """One entry of a :class:`GiftCertificate`'s ``allocations``."""
 
     account: GiftCertificateAllocationAccount | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     date: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None
@@ -170,13 +152,11 @@ class GiftCertificateAllocationsData(Dto):
     """One entry of a :class:`GiftCertificateAllocations`'s ``data``."""
 
     account: GiftCertificateAllocationsDataAccount | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     date: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None
@@ -225,9 +205,6 @@ class GiftCertificateAllocationRead(GiftCertificateAllocation):
     """One allocation, under ``gift_certificate_allocation``: the fields an allocation carries in
     ``allocations``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/gift_certificates/{gc_id}/allocations/{allocation_id}",
-    )
 
     ENVELOPE_KEY = "gift_certificate_allocation"
 
@@ -236,8 +213,5 @@ class GiftCertificateTransactionRead(GiftCertificateTransaction):
     """One transaction, under ``gift_certificate_transaction``: the fields a transaction carries in
     ``transactions``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/gift_certificates/{gc_id}/transactions/{transaction_id}",
-    )
 
     ENVELOPE_KEY = "gift_certificate_transaction"

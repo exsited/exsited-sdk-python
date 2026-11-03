@@ -97,7 +97,7 @@ class User(Dto):
 
 
 class SocialLinks(Dto):
-    """An account's social links. Present on all 1,683 accounts, never ``null``."""
+    """An account's social links."""
 
     website: str | None = None
     linkedin: str | None = None
@@ -106,7 +106,7 @@ class SocialLinks(Dto):
 
 
 class Currency(Dto):
-    """An account's currency, as a reference. Seen 1,746 times, never ``null``."""
+    """An account's currency, as a reference."""
 
     object: str | None = None
     id: str | None = None
@@ -116,7 +116,7 @@ class Currency(Dto):
 
 
 class TimeZone(Dto):
-    """An account's time zone, as a reference. Seen 1,698 times, never ``null``."""
+    """An account's time zone, as a reference."""
 
     object: str | None = None
     id: str | None = None
@@ -202,7 +202,7 @@ class Contact(Dto):
     address: ContactAddress | None = None
     custom_attributes: list[ContactCustomAttribute] | None = None
     created_on: str | None = None
-    #: ``null`` in 8 of 10 - set only on a contact that has been edited.
+    #: May be ``null``: set only on a contact that has been edited.
     last_updated_on: str | None = None
     created_by: User | None = None
     last_updated_by: User | None = None
@@ -227,13 +227,11 @@ class PaymentMethod(Dto):
     status: str | None = None
     default: bool | None = None
     restricted_to_orders: bool | None = None
-    #: Untyped: ``null`` in all 7 records measured. It is named as though it holds a list, but
-    #: nothing observed says so.
     specified_order_ids: Any = None
     processor: PaymentProcessor | None = None
     reference: str | None = None
     payment_count: int | None = None
-    #: ``null`` in 4 of 7 - a method that has never been charged.
+    #: May be ``null``: a method that has never been charged.
     last_used_at: str | None = None
     created_on: str | None = None
     last_updated_on: str | None = None
@@ -251,8 +249,7 @@ class BillingPreferences(Dto):
     billing_period: str | None = None
     billing_start_date: str | None = None
     billing_start_day_of_month: int | None = None
-    #: One of the two names the alignment setting reads back under. ``bool`` on all 5 blocks that
-    #: carried it.
+    #: One of the two names the alignment setting reads back under. ``bool``.
     charges_aligned_to_billing: bool | None = None
     payment_processor: str | None = None
     payment_mode: str | None = None
@@ -261,13 +258,12 @@ class BillingPreferences(Dto):
     consolidate_invoice: bool | None = None
     fulfillment_mode: str | None = None
     fulfillment_term: str | None = None
-    #: Untyped: an object, seen on 20 of 49, whose keys were never varied enough to establish a
-    #: shape.
+    #: Untyped: an object with no fixed shape.
     proforma_properties: Any = None
     communication_group: str | None = None
     billing_mode: str | None = None
     charging_period: str | None = None
-    #: On the 14 records that carried it this read as a string, not a bool - unlike
+    #: Read as a string, not a bool - unlike
     #: :attr:`charges_aligned_to_billing`, which the account body carries.
     charging_and_billing_alignment: str | None = None
     charging_start_date: str | None = None
@@ -310,7 +306,7 @@ class Account(Dto):
     ENVELOPE_KEY = "account"
 
     object: str | None = None
-    #: The short code - ``"W13ZGY"`` - and what every path takes. Never ``null`` in 1,686 records.
+    #: The short code - ``"your-account-id"`` - and what every path takes.
     id: str | None = None
     name: str | None = None
     status: str | None = None
@@ -320,12 +316,10 @@ class Account(Dto):
     description: str | None = None
     currency: Currency | None = None
     time_zone: TimeZone | None = None
-    #: ``null`` on 1,013 of 1,678 - an account with no tax profile.
+    #: May be ``null``: an account with no tax profile.
     tax: Reference | None = None
     custom_form: CustomForm | None = None
     parent_account_id: str | None = None
-    #: Untyped: ``null`` in all 1,683 records measured. Read ``get_account_image`` for an
-    #: account's image instead.
     image_url: Any = None
     workflow_status: str | None = None
     social_links: SocialLinks | None = None
@@ -335,15 +329,15 @@ class Account(Dto):
     origin: str | None = None
     group: Reference | None = None
     manager: Reference | None = None
-    #: ``null`` on 1,663 of 1,678 - rarely set.
+    #: May be ``null``: rarely set.
     sales_rep: Reference | None = None
-    #: ``null`` on 1,673 of 1,678 - rarely set.
+    #: May be ``null``: rarely set.
     user_team: Reference | None = None
     accounting_code: AccountAccountingCode | None = None
     pricing_level: Reference | None = None
     referral_tracking: str | None = None
     created_on: str | None = None
-    #: ``null`` on 1,429 of 1,678 - set only once an account has been edited.
+    #: May be ``null``: set only once an account has been edited.
     last_updated_on: str | None = None
     created_by: User | None = None
     last_updated_by: User | None = None
@@ -364,9 +358,7 @@ class Account(Dto):
     partial_invoices: list[Any] | None = None
     activity_logs: list[Any] | None = None
     payment_method: PaymentMethod | None = None
-    # Null in every record measured, so untyped.
     tax_id: Any = None
-    # Null in every record measured, so untyped.
     tax_id_number: Any = None
 
 
@@ -405,10 +397,8 @@ class NoteView(Dto):
     created_by: User | None = None
     last_updated_by: User | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
 
 
@@ -809,7 +799,6 @@ class AccountNoteFile(Dto):
 class AccountKpis(Dto):
     """What ``get_account_kpis`` answers, under ``account_kpis``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/accounts/{account_id}/kpis",)
 
     ENVELOPE_KEY = "account_kpis"
 
@@ -824,11 +813,8 @@ class AccountKpis(Dto):
     total_credit_balance: str | None = None
     total_orders: int | None = None
     active_orders: int | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_at: Any = None
-    # Null in every record measured, so untyped.
     last_cancelled_at: Any = None
-    # Null in every record measured, so untyped.
     deleted_at: Any = None
     computed_at: str | None = None
 
@@ -837,7 +823,6 @@ class AccountFinancialSummary(Dto):
     """What ``get_account_financial_summary`` answers, under ``account``: its ``name`` and the
     ``financial_summary`` itself."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/accounts/{account_id}/financial_summary",)
 
     ENVELOPE_KEY = "account"
 
@@ -862,13 +847,9 @@ class AccountCustomObject(CustomObject):
     """What ``get_account_custom_object`` answers, under ``custom_object``: the schema, with the
     account's instances of it and their own ``pagination``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/accounts/{account_id}/custom_objects/{custom_object_id}",
-    )
 
     ENVELOPE_KEY = "custom_object"
 
-    #: Empty in every record measured, so its entries are untyped.
     instances: list[Any] | None = None
     pagination: Pagination | None = None
 
@@ -877,9 +858,6 @@ class AccountComponentObject(Dto):
     """What ``get_account_component_object`` answers, under ``custom_component_object``: the
     fields of one entry of the listing ``get_account_component_objects`` answers."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/accounts/{account_id}/component/{component_id}/{component_object_id}",
-    )
 
     ENVELOPE_KEY = "custom_component_object"
 
@@ -891,7 +869,6 @@ class AccountComponentObject(Dto):
     attributes: list[Any] | None = None
     code: str | None = None
     component: ComponentObjectsDataDetail | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     custom_form: ComponentObjectsDataCustomForm | None = None
@@ -899,9 +876,7 @@ class AccountComponentObject(Dto):
     href: str | None = None
     id: str | None = None
     items: list[Any] | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     orders: list[Any] | None = None
@@ -911,11 +886,8 @@ class AccountComponentObject(Dto):
     status: str | None = None
     version: int | None = None
     workflow_data: list[Any] | None = None
-    # Null in every record measured, so untyped.
     workflow_stage: Any = None
-    # Null in every record measured, so untyped.
     workflow_status: Any = None
-    # Null in every record measured, so untyped.
     workflow_status_uuid: Any = None
 
 
@@ -946,7 +918,6 @@ class AccountCustomAttribute(Dto):
 class NoteViewWatcher(Dto):
     """One entry of a :class:`NoteView`'s ``watchers``."""
 
-    # Null in every record measured, so untyped.
     email: Any = None
     name: str | None = None
     type: str | None = None
@@ -957,7 +928,6 @@ class ContactAddress(Dto):
 
     city: str | None = None
     country: str | None = None
-    # Null in every record measured, so untyped.
     country_code: Any = None
     line_1: str | None = None
     line_2: str | None = None

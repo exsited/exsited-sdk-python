@@ -139,8 +139,7 @@ def get_workflow_stages(
     raise_on_error: bool | None = None,
     response_format: str | None = None,
 ) -> ApiResponse:
-    """List a workflow's stages - ``GET /workflows/{workflow_id}/stages``. No stage has been
-    measured, so no typed view."""
+    """List a workflow's stages - ``GET /workflows/{workflow_id}/stages``. No typed view."""
     return client.send_get_request(
         workflows_urls.WORKFLOW_STAGES,
         path_params={"workflow_id": workflow_id},
@@ -159,7 +158,7 @@ def get_workflow_stage(
     response_format: str | None = None,
 ) -> ApiResponse:
     """Retrieve one stage - ``GET /workflows/{workflow_id}/stages/{stage_id}``, the ``wfs_`` id,
-    under ``workflow_stage``. No stage has been measured, so no typed view."""
+    under ``workflow_stage``. No typed view."""
     return client.send_get_request(
         workflows_urls.WORKFLOW_STAGE,
         path_params={"workflow_id": workflow_id, "stage_id": stage_id},
@@ -234,7 +233,7 @@ def get_workflow_custom_component_history(
 ) -> ApiResponse:
     """Workflow history of one component instance -
     ``GET /workflows/custom_components/{component_uuid}/{object_code}/history``, the component's
-    dashed uuid and the instance's ``code``. Measured empty only, so no typed view."""
+    dashed uuid and the instance's ``code``. No typed view."""
     return client.send_get_request(
         workflows_urls.WORKFLOW_CUSTOM_COMPONENT_HISTORY,
         path_params={"component_uuid": component_uuid, "object_code": object_code},
@@ -255,7 +254,7 @@ def get_workflow_custom_component_milestones(
 ) -> ApiResponse:
     """Milestones of one component instance -
     ``GET /workflows/custom_components/{component_uuid}/{object_code}/milestones``, the
-    component's dashed uuid and the instance's ``code``. Measured empty only, so no typed view."""
+    component's dashed uuid and the instance's ``code``. No typed view."""
     return client.send_get_request(
         workflows_urls.WORKFLOW_CUSTOM_COMPONENT_MILESTONES,
         path_params={"component_uuid": component_uuid, "object_code": object_code},
@@ -276,7 +275,7 @@ def get_workflow_custom_component_milestone(
 ) -> ApiResponse:
     """One milestone of one component instance -
     ``GET /workflows/custom_components/{component_uuid}/{object_code}/milestones/{milestone_id}``,
-    the ``wfmi_`` id, under ``workflow_milestone_instance``. Never measured, so no typed view."""
+    the ``wfmi_`` id, under ``workflow_milestone_instance``. No typed view."""
     return client.send_get_request(
         workflows_urls.WORKFLOW_CUSTOM_COMPONENT_MILESTONE,
         path_params={

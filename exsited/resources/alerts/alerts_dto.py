@@ -15,12 +15,6 @@ __all__ = [
 class Alerts(Dto):
     """The alerts body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/alerts",
-        "GET /api/{api_version}/alerts/account/{account_id}",
-        "GET /api/{api_version}/alerts/employee/{employee_id}",
-        "GET /api/{api_version}/alerts/labour/{labour_id}",
-    )
 
     data: list[Any] | None = None
     object: str | None = None

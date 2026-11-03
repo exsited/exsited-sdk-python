@@ -110,7 +110,6 @@ __all__ = [
 class Booking(Dto):
     """The booking body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking",)
 
     account: BookingAccount | None = None
     allow_contract: bool | None = None
@@ -120,7 +119,6 @@ class Booking(Dto):
     billing_start_day_of_month: str | None = None
     communication_preferences: list[BookingCommunicationPreference] | None = None
     contract_properties: BookingContractProperties | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: BookingCurrency | None = None
@@ -131,7 +129,6 @@ class Booking(Dto):
     display_name: str | None = None
     id: str | None = None
     invoice_note: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     manager: BookingManager | None = None
@@ -160,7 +157,6 @@ class Booking(Dto):
 class BookingList(Dto):
     """One page of ``Booking`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking",)
 
     data: list[Booking] | None = None
     object: str | None = None
@@ -171,27 +167,16 @@ class BookingList(Dto):
 class BookingById(Dto):
     """The booking by id body, under ``order``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/booking/{booking_id}",
-        "GET /api/{api_version}/booking/{booking_id}/information",
-        "GET /api/{api_version}/booking/{booking_id}/lines",
-        "PATCH /api/{api_version}/booking/{booking_id}/information",
-        "PATCH /api/{api_version}/booking/{booking_id}/billing_preferences",
-        "PATCH /api/{api_version}/booking/{booking_id}/lines/{line_uuid}",
-        "PATCH /api/{api_version}/booking/{booking_id}/lines/{line_uuid}/billing_preferences",
-    )
 
     ENVELOPE_KEY = "order"
 
     account: BookingByIdAccount | None = None
-    # Empty in every record measured; sent by the writes, not by the reads.
     activity_logs: list[Any] | None = None
     allow_contract: bool | None = None
     billing_address: BookingByIdBillingAddress | None = None
     billing_preferences: BookingByIdBillingPreferences | None = None
     billing_start_date: str | None = None
     communication_preferences: list[BookingByIdCommunicationPreference] | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: BookingByIdCurrency | None = None
@@ -199,13 +184,11 @@ class BookingById(Dto):
     custom_form: BookingByIdCustomForm | None = None
     customer_purchase_order_id: str | None = None
     description: str | None = None
-    # Null in every record measured, so untyped.
     discount_profile: Any = None
     display_name: str | None = None
     id: str | None = None
     invoice_note: str | None = None
     kpis: BookingByIdKpis | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     lines: list[BookingByIdLine] | None = None
@@ -217,21 +200,16 @@ class BookingById(Dto):
     order_start_date: str | None = None
     order_type: str | None = None
     origin: str | None = None
-    # Null in every record measured, so untyped.
     original_total: Any = None
     pre_order: bool | None = None
     price_tax_inclusive: bool | None = None
     quote_converted: bool | None = None
     quote_order: bool | None = None
-    # Null in every record measured, so untyped.
     referral_account: Any = None
-    # Null in every record measured, so untyped.
     sales_rep: Any = None
-    # Null in every record measured, so untyped.
     shipping_address: Any = None
     shipping_cost: float | None = None
     shipping_line_items: list[Any] | None = None
-    # Null in every record measured, so untyped.
     shipping_profile: Any = None
     status: str | None = None
     subtotal: str | None = None
@@ -292,11 +270,8 @@ class BookingByIdBillingAddress(Dto):
 
     address_line_1: str | None = None
     address_line_2: str | None = None
-    # Null in every record measured, so untyped.
     address_line_3: Any = None
-    # Null in every record measured, so untyped.
     address_line_4: Any = None
-    # Null in every record measured, so untyped.
     address_line_5: Any = None
     city: str | None = None
     country: str | None = None
@@ -371,23 +346,16 @@ class BookingByIdLine(Dto):
 class BookingByIdKpis(Dto):
     """A :class:`BookingById`'s ``kpis``."""
 
-    # Null in every record measured, so untyped.
     deleted_at: Any = None
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     last_cancelled_at: Any = None
-    # Null in every record measured, so untyped.
     last_changed_at: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_at: Any = None
     monthly_recurring_revenue: str | None = None
-    # Null in every record measured, so untyped.
     next_invoice_issue_date: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     start_date: Any = None
     total_collected: str | None = None
     total_due: str | None = None
@@ -561,13 +529,10 @@ class BookingContractProperties(Dto):
 class BookingByIdBillingPreferencesProformaProperties(Dto):
     """A :class:`BookingByIdBillingPreferences`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 
@@ -630,13 +595,10 @@ class BookingByIdLineItemProperties(Dto):
 class BookingBillingPreferencesProformaProperties(Dto):
     """A :class:`BookingBillingPreferences`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 
@@ -667,7 +629,6 @@ class BookingByIdLineItemSaleTaxConfigurationTaxCode(Dto):
 class BookingNoteList(Dto):
     """One page of every order's notes, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/notes",)
 
     data: list[BookingNote] | None = None
     object: str | None = None
@@ -678,7 +639,6 @@ class BookingNoteList(Dto):
 class BookingBillingPreferencesView(Dto):
     """What ``get_booking_billing_preferences`` answers, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/billing_preferences",)
 
     ENVELOPE_KEY = "order"
 
@@ -689,10 +649,6 @@ class BookingBillingPreferencesView(Dto):
 class BookingCustomObjectList(Dto):
     """One page of the custom objects orders use, under ``data``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/booking/{booking_id}/custom_objects",
-        "GET /api/{api_version}/booking/{booking_id}/custom_objects_instances",
-    )
 
     data: list[BookingCustomObjectEntry] | None = None
     object: str | None = None
@@ -703,25 +659,17 @@ class BookingCustomObjectList(Dto):
 class BookingCustomObject(Dto):
     """One custom object with the booking's instances of it, under ``custom_object``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/booking/{booking_id}/custom_objects/{custom_object_id}",
-        "GET /api/{api_version}/booking/{booking_id}/custom_objects_instances/{custom_object_id}",
-    )
 
     ENVELOPE_KEY = "custom_object"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     custom_component: Any = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
     instances: list[Any] | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -734,7 +682,6 @@ class BookingCustomObject(Dto):
 class BookingInvoiceList(Dto):
     """One page of a booking's invoices, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/invoices",)
 
     data: list[BookingInvoice] | None = None
     object: str | None = None
@@ -745,9 +692,6 @@ class BookingInvoiceList(Dto):
 class BookingItemFulfillment(Dto):
     """What ``get_booking_item_fulfillment`` answers, under ``item_fulfillment``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/booking/{booking_id}/item_fulfillments/{fulfillment_id}",
-    )
 
     ENVELOPE_KEY = "item_fulfillment"
 
@@ -756,11 +700,9 @@ class BookingItemFulfillment(Dto):
     created_by: BookingItemFulfillmentCreatedBy | None = None
     created_on: str | None = None
     custom_attributes: dict[str, Any] | None = None
-    # Null in every record measured, so untyped.
     delivery_status: Any = None
     fulfillment_completed: bool | None = None
     fulfillment_date: str | None = None
-    # Null in every record measured, so untyped.
     fulfillment_note: Any = None
     fulfillment_status: str | None = None
     fulfillments: list[BookingItemFulfillmentFulfillment] | None = None
@@ -770,7 +712,6 @@ class BookingItemFulfillment(Dto):
     last_updated_by: BookingItemFulfillmentLastUpdatedBy | None = None
     last_updated_on: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     order: Any = None
     status: str | None = None
     tracking_number: str | None = None
@@ -780,27 +721,19 @@ class BookingItemFulfillment(Dto):
 class BookingKpis(Dto):
     """What ``get_booking_kpis`` answers, under ``order_kpis``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/kpis",)
 
     ENVELOPE_KEY = "order_kpis"
 
-    # Null in every record measured, so untyped.
     deleted_at: Any = None
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     last_cancelled_at: Any = None
-    # Null in every record measured, so untyped.
     last_changed_at: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_at: Any = None
     monthly_recurring_revenue: str | None = None
-    # Null in every record measured, so untyped.
     next_invoice_issue_date: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     start_date: Any = None
     total_collected: str | None = None
     total_due: str | None = None
@@ -812,7 +745,6 @@ class BookingKpis(Dto):
 class BookingPaymentMethods(Dto):
     """What ``get_booking_payment_methods`` answers, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/payment_methods",)
 
     ENVELOPE_KEY = "order"
 
@@ -822,9 +754,6 @@ class BookingPaymentMethods(Dto):
 class BookingPaymentMethod(Dto):
     """What ``get_booking_payment_method`` answers, under ``order``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/booking/{booking_id}/payment_methods/{payment_method_ref}",
-    )
 
     ENVELOPE_KEY = "order"
 
@@ -834,7 +763,6 @@ class BookingPaymentMethod(Dto):
 class BookingPaymentList(Dto):
     """One page of a booking's payments, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/payments",)
 
     data: list[BookingPayment] | None = None
     object: str | None = None
@@ -845,7 +773,6 @@ class BookingPaymentList(Dto):
 class BookingPaymentView(Dto):
     """What ``get_booking_payment`` answers, under ``payment``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/payments/{payment_id}",)
 
     ENVELOPE_KEY = "payment"
 
@@ -857,12 +784,9 @@ class BookingPaymentView(Dto):
     gift_certificate_applied: list[Any] | None = None
     id: str | None = None
     invoices: list[BookingPaymentViewInvoice] | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     payment_applied: list[BookingPaymentViewPaymentApplied] | None = None
     payment_note: str | None = None
@@ -874,7 +798,6 @@ class BookingPaymentView(Dto):
 class BookingPdf(Dto):
     """What ``get_booking_pdf`` answers, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/pdf",)
 
     ENVELOPE_KEY = "order"
 
@@ -884,7 +807,6 @@ class BookingPdf(Dto):
 class BookingQuotePartialInvoices(Dto):
     """What ``get_booking_quote_partial_invoices`` answers, under ``order``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/quote_partial_invoices",)
 
     ENVELOPE_KEY = "order"
 
@@ -898,14 +820,12 @@ class BookingNote(Dto):
     content: str | None = None
     created_by: BookingNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
     last_updated_by: BookingNoteLastUpdatedBy | None = None
     last_updated_on: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[BookingNoteWatcher] | None = None
@@ -963,30 +883,23 @@ class BookingBillingPreferencesDetail(Dto):
 class BookingBillingPreferencesDetailProformaProperties(Dto):
     """A :class:`BookingBillingPreferencesDetail`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 
 class BookingCustomObjectEntry(Dto):
     """One entry of a :class:`BookingCustomObjectList`'s ``data``."""
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     custom_component: Any = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -1009,24 +922,18 @@ class BookingInvoice(Dto):
     created_on: str | None = None
     currency: BookingInvoiceCurrency | None = None
     custom_form: BookingInvoiceCustomForm | None = None
-    # Null in every record measured, so untyped.
     customer_purchase_order_id: Any = None
     discount_amount: float | None = None
     due: str | None = None
     due_date: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     invoice_note: Any = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_payment: Any = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     order: BookingInvoiceOrder | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     paid: str | None = None
     payment_status: str | None = None
@@ -1108,17 +1015,13 @@ class BookingItemFulfillmentFulfillment(Dto):
     fulfillment_qty: float | None = None
     fulfillment_sent_qty: float | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     inventory_tracking: Any = None
     item: BookingItemFulfillmentFulfillmentItem | None = None
     object: str | None = None
     pending_return: float | None = None
-    # Null in every record measured, so untyped.
     returned: Any = None
     serving_status: str | None = None
-    # Null in every record measured, so untyped.
     uom: Any = None
-    # Null in every record measured, so untyped.
     uom_precision: Any = None
 
 
@@ -1217,12 +1120,9 @@ class BookingPayment(Dto):
     gift_certificate_applied: list[Any] | None = None
     id: str | None = None
     invoices: list[BookingPaymentInvoice] | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     payment_applied: list[BookingPaymentPaymentApplied] | None = None
     payment_note: str | None = None
@@ -1262,7 +1162,6 @@ class BookingPaymentPaymentApplied(Dto):
     """One entry of a :class:`BookingPayment`'s ``payment_applied``."""
 
     amount: str | None = None
-    # Null in every record measured, so untyped.
     gateway_response: Any = None
     method: str | None = None
     processor: str | None = None
@@ -1300,7 +1199,6 @@ class BookingPaymentViewPaymentApplied(Dto):
     """One entry of a :class:`BookingPaymentView`'s ``payment_applied``."""
 
     amount: str | None = None
-    # Null in every record measured, so untyped.
     gateway_response: Any = None
     method: str | None = None
     processor: str | None = None
@@ -1320,7 +1218,6 @@ class BookingPdfPdf(Dto):
 class BookingLine(Dto):
     """What ``get_booking_line`` answers, under ``order_line``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/booking/{booking_id}/lines/{line_uuid}",)
 
     ENVELOPE_KEY = "order_line"
 

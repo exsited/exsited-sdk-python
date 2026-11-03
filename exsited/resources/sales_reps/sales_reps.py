@@ -51,8 +51,7 @@ def create_settings_sales_rep(
     raise_on_error: bool | None = None,
     response_format: str | None = None,
 ) -> ApiResponse:
-    """Create a sales rep - ``POST /settings/sales_reps``; answers ``400``
-    ``validation_error``, naming no field, to every valid body."""
+    """Create a sales rep - ``POST /settings/sales_reps``."""
     _require_payload(payload)
     return client.send_post_request(
         sales_reps_urls.SETTINGS_SALES_REPS,

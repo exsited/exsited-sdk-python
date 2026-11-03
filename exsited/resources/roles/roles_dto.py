@@ -16,23 +16,16 @@ __all__ = [
 class SettingsRole(Dto):
     """The settings role body, under ``role``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/roles",
-        "GET /api/{api_version}/settings/roles/{role_id}",
-    )
 
     ENVELOPE_KEY = "role"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
     is_system_role: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -43,7 +36,6 @@ class SettingsRole(Dto):
 class SettingsRoleList(Dto):
     """One page of ``SettingsRole`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/roles",)
 
     data: list[SettingsRole] | None = None
     object: str | None = None

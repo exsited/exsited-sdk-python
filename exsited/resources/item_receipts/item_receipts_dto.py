@@ -35,10 +35,6 @@ __all__ = [
 class ItemReceipt(Dto):
     """The item receipt body, under ``item_receipt``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/item_receipts",
-        "GET /api/{api_version}/item_receipts/{item_receipt_id}",
-    )
 
     ENVELOPE_KEY = "item_receipt"
 
@@ -64,7 +60,6 @@ class ItemReceipt(Dto):
 class ItemReceiptList(Dto):
     """One page of ``ItemReceipt`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/item_receipts",)
 
     data: list[ItemReceipt] | None = None
     object: str | None = None
@@ -73,10 +68,8 @@ class ItemReceiptList(Dto):
 
 
 class ItemReceipts(Dto):
-    """The item receipts body, under ``item-receipt``; measured from the v4 collection, not the
-    instance, so read ``.map`` when a field is unexpectedly None."""
+    """The item receipts body, under ``item-receipt``. Read ``.map`` when a field is unexpectedly None."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/item_receipts",)
 
     ENVELOPE_KEY = "item-receipt"
 
@@ -99,7 +92,6 @@ class ItemReceipts(Dto):
 class ItemReceiptUpdated(Dto):
     """The item receipt updated body, under ``item_receipt``."""
 
-    MEASURED_FROM = ("PATCH /api/{api_version}/item_receipts/{item_receipt_id}",)
 
     ENVELOPE_KEY = "item_receipt"
 
@@ -117,7 +109,6 @@ class ItemReceiptUpdated(Dto):
     purchase_order: ItemReceiptUpdatedPurchaseOrder | None = None
     purchase_order_id: str | None = None
     receipt_date: str | None = None
-    # Null in every record measured, so untyped.
     receipt_note: Any = None
     receipt_status: str | None = None
     receipts: list[Any] | None = None
@@ -129,10 +120,8 @@ class ItemReceiptUpdated(Dto):
 
 
 class PurchaseOrderItemReceipts(Dto):
-    """The purchase order item receipts body, under ``purchase_order``; measured from the v4
-    collection, not the instance, so read ``.map`` when a field is unexpectedly None."""
+    """The purchase order item receipts body, under ``purchase_order``. Read ``.map`` when a field is unexpectedly None."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_orders/{purchase_order_id}/item_receipts",)
 
     ENVELOPE_KEY = "purchase_order"
 

@@ -16,16 +16,9 @@ __all__ = [
 class SettingsDocumentTemplate(Dto):
     """The settings document template body, under ``document_template``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/document_templates",
-        "GET /api/{api_version}/settings/document_templates/{document_template_id}",
-        "POST /api/{api_version}/settings/document_templates",
-        "PATCH /api/{api_version}/settings/document_templates/{document_template_id}",
-    )
 
     ENVELOPE_KEY = "document_template"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -36,7 +29,6 @@ class SettingsDocumentTemplate(Dto):
     is_default: bool | None = None
     is_edited: bool | None = None
     is_system_template: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -49,7 +41,6 @@ class SettingsDocumentTemplate(Dto):
 class SettingsDocumentTemplateList(Dto):
     """One page of ``SettingsDocumentTemplate`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/document_templates",)
 
     data: list[SettingsDocumentTemplate] | None = None
     object: str | None = None

@@ -17,10 +17,8 @@ __all__ = [
 class ApprovalsAccount(Dto):
     """The approvals account body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/approvals/account",)
 
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     entity: str | None = None
@@ -36,7 +34,6 @@ class ApprovalsAccount(Dto):
 class ApprovalsAccountList(Dto):
     """One page of ``ApprovalsAccount`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/approvals/account",)
 
     data: list[ApprovalsAccount] | None = None
     object: str | None = None
@@ -47,7 +44,6 @@ class ApprovalsAccountList(Dto):
 class ApprovalsSaleorder(Dto):
     """The approvals saleorder body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/approvals/saleOrder",)
 
     data: list[Any] | None = None
     object: str | None = None

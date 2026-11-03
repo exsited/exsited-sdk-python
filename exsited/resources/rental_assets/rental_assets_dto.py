@@ -46,14 +46,6 @@ __all__ = [
 class RentalAsset(Dto):
     """The rental asset body, under ``rental_asset``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/rental_assets",
-        "GET /api/{api_version}/rental_assets/{rental_asset_uuid}",
-        "POST /api/{api_version}/rental_assets",
-        "PATCH /api/{api_version}/rental_assets/{rental_asset_uuid}",
-        "POST /api/{api_version}/rental_assets/{rental_asset_id}/cancel",
-        "POST /api/{api_version}/rental_assets/{rental_asset_id}/reactivate",
-    )
 
     ENVELOPE_KEY = "rental_asset"
 
@@ -67,9 +59,7 @@ class RentalAsset(Dto):
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     image_name: Any = None
-    # Null in every record measured, so untyped.
     item: Any = None
     last_updated_by: RentalAssetLastUpdatedBy | None = None
     last_updated_on: str | None = None
@@ -86,7 +76,6 @@ class RentalAsset(Dto):
 class RentalAssetList(Dto):
     """One page of ``RentalAsset`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/rental_assets",)
 
     data: list[RentalAsset] | None = None
     object: str | None = None
@@ -97,7 +86,6 @@ class RentalAssetList(Dto):
 class RentalAssetProfile(Dto):
     """The rental asset profile body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/rental_asset_profiles",)
 
     created_by: RentalAssetProfileCreatedBy | None = None
     created_on: str | None = None
@@ -108,14 +96,12 @@ class RentalAssetProfile(Dto):
     is_tax_inclusive: bool | None = None
     last_updated_by: RentalAssetProfileLastUpdatedBy | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     max_booking_limit: Any = None
     name: str | None = None
     object: str | None = None
     rental_asset_profile_sessions: list[RentalAssetProfileRentalAssetProfileSession] | None = None
     rental_assets: list[RentalAssetProfileRow] | None = None
     status: str | None = None
-    # Null in every record measured, so untyped.
     tax: Any = None
     version: int | None = None
 
@@ -123,7 +109,6 @@ class RentalAssetProfile(Dto):
 class RentalAssetProfileList(Dto):
     """One page of ``RentalAssetProfile`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/rental_asset_profiles",)
 
     data: list[RentalAssetProfile] | None = None
     object: str | None = None
@@ -134,7 +119,6 @@ class RentalAssetProfileList(Dto):
 class RentalAssetAvailability(Dto):
     """The rental asset availability body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/rental_asset_availability",)
 
     available_list: list[Any] | None = None
     code: str | None = None
@@ -155,7 +139,6 @@ class RentalAssetAvailability(Dto):
 class RentalAssetAvailabilityList(Dto):
     """One page of ``RentalAssetAvailability`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/rental_asset_availability",)
 
     data: list[RentalAssetAvailability] | None = None
     object: str | None = None
@@ -166,10 +149,6 @@ class RentalAssetAvailabilityList(Dto):
 class RentalAssetProfileView(Dto):
     """What ``get_rental_asset_profile`` answers, under ``rental_asset_profile``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/rental_asset_profiles/{rental_asset_profile_id}",
-        "POST /api/{api_version}/rental_asset_profiles",
-    )
 
     ENVELOPE_KEY = "rental_asset_profile"
 
@@ -183,7 +162,6 @@ class RentalAssetProfileView(Dto):
     is_tax_inclusive: bool | None = None
     last_updated_by: RentalAssetProfileViewLastUpdatedBy | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     max_booking_limit: Any = None
     name: str | None = None
     object: str | None = None
@@ -192,7 +170,6 @@ class RentalAssetProfileView(Dto):
     )
     rental_assets: list[RentalAssetProfileViewRow] | None = None
     status: str | None = None
-    # Null in every record measured, so untyped.
     tax: Any = None
     version: int | None = None
 
@@ -212,7 +189,6 @@ class RentalAssetProfileViewRow(Dto):
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     image_name: Any = None
     name: str | None = None
     object: str | None = None
@@ -345,7 +321,6 @@ class RentalAssetProfileRow(Dto):
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     image_name: Any = None
     name: str | None = None
     object: str | None = None
@@ -397,7 +372,6 @@ class RentalAssetProfileViewRentalAssetProfileSessionRentalAssetProfileSessionPr
     object: str | None = None
     price: float | None = None
     price_type: str | None = None
-    # Null in every record measured, so untyped.
     pricing_level: Any = None
     rental_asset_profile_session_price_hours: list[Any] | None = None
     rental_asset_profile_session_price_peak_hourly: list[Any] | None = None
@@ -447,7 +421,6 @@ class RentalAssetProfileRentalAssetProfileSessionRentalAssetProfileSessionPrice(
     object: str | None = None
     price: float | None = None
     price_type: str | None = None
-    # Null in every record measured, so untyped.
     pricing_level: Any = None
     rental_asset_profile_session_price_hours: list[Any] | None = None
     rental_asset_profile_session_price_peak_hourly: list[Any] | None = None

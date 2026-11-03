@@ -1,4 +1,4 @@
-"""Typed views over the webhook bodies: none, since no webhook id was readable to measure."""
+"""Typed views over the webhook bodies: none."""
 
 from __future__ import annotations
 

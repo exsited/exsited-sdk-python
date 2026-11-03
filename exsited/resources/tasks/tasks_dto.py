@@ -28,9 +28,7 @@ __all__ = [
 class Task(Dto):
     """The task body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/tasks",)
 
-    # Null in every record measured, so untyped.
     actual_hours: Any = None
     code: str | None = None
     completed_at: str | None = None
@@ -46,32 +44,25 @@ class Task(Dto):
     id: str | None = None
     last_updated_by: TaskLastUpdatedBy | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     milestone: Any = None
     name: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     parent_task: Any = None
     priority: str | None = None
-    # Null in every record measured, so untyped.
     resource: Any = None
     sort_order: int | None = None
-    # Null in every record measured, so untyped.
     start_after: Any = None
     start_date: str | None = None
-    # Null in every record measured, so untyped.
     state: Any = None
     status: str | None = None
     task_status: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     workflow: Any = None
 
 
 class TaskList(Dto):
     """One page of ``Task`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/tasks",)
 
     data: list[Task] | None = None
     object: str | None = None
@@ -82,20 +73,10 @@ class TaskList(Dto):
 class TaskView(Dto):
     """What ``get_task`` answers, under ``work_task``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/tasks/{task_id}",
-        "GET /api/{api_version}/tasks/{task_id}/checklist",
-        "GET /api/{api_version}/tasks/{task_id}/checklist/{task_checklist_uuid}",
-        "PATCH /api/{api_version}/tasks/{task_id}",
-        "POST /api/{api_version}/tasks/{task_id}/checklist",
-        "POST /api/{api_version}/tasks",
-        "PATCH /api/{api_version}/tasks/{task_id}/checklist/{task_checklist_uuid}",
-    )
 
     ENVELOPE_KEY = "work_task"
 
     activity_logs: list[TaskViewActivityLog] | None = None
-    # Null in every record measured, so untyped.
     actual_hours: Any = None
     alerts: list[Any] | None = None
     assignees: TaskViewAssignees | None = None
@@ -114,32 +95,25 @@ class TaskView(Dto):
     id: str | None = None
     last_updated_by: TaskViewLastUpdatedBy | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     milestone: Any = None
     name: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     parent_task: Any = None
     priority: str | None = None
-    # Null in every record measured, so untyped.
     resource: Any = None
     sort_order: int | None = None
-    # Null in every record measured, so untyped.
     start_after: Any = None
     start_date: str | None = None
-    # Null in every record measured, so untyped.
     state: Any = None
     status: str | None = None
     task_status: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     workflow: Any = None
 
 
 class TaskNoteList(Dto):
     """One page of what ``get_task_notes`` lists, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/tasks/{task_code}/notes",)
 
     data: list[Any] | None = None
     object: str | None = None
@@ -212,7 +186,6 @@ class TaskViewAssigneesSelectedLabour(Dto):
     email: str | None = None
     labour_code: str | None = None
     name: str | None = None
-    # Null in every record measured, so untyped.
     responsibility: Any = None
     uuid: str | None = None
 
@@ -224,6 +197,5 @@ class TaskViewAssigneesSelectedEmployee(Dto):
     email: str | None = None
     employee_code: str | None = None
     name: str | None = None
-    # Null in every record measured, so untyped.
     responsibility: Any = None
     uuid: str | None = None

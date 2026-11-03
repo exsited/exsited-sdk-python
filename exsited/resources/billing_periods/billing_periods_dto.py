@@ -16,16 +16,9 @@ __all__ = [
 class SettingsBillingPeriod(Dto):
     """The settings billing period body, under ``billing_period``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/billing_periods",
-        "GET /api/{api_version}/settings/billing_periods/{billing_period_id}",
-        "POST /api/{api_version}/settings/billing_periods",
-        "PATCH /api/{api_version}/settings/billing_periods/{billing_period_id}",
-    )
 
     ENVELOPE_KEY = "billing_period"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -33,7 +26,6 @@ class SettingsBillingPeriod(Dto):
     duration: int | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -47,7 +39,6 @@ class SettingsBillingPeriod(Dto):
 class SettingsBillingPeriodList(Dto):
     """One page of ``SettingsBillingPeriod`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/billing_periods",)
 
     data: list[SettingsBillingPeriod] | None = None
     object: str | None = None

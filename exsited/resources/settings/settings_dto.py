@@ -137,10 +137,8 @@ __all__ = [
 class SettingsDiscountProfile(Dto):
     """The settings discount profile body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/discount_profiles",)
 
     accounting_code: SettingsDiscountProfileAccountingCode | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -151,7 +149,6 @@ class SettingsDiscountProfile(Dto):
     href: str | None = None
     id: str | None = None
     invoice_note: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     max_use_per_account: int | None = None
@@ -174,7 +171,6 @@ class SettingsDiscountProfile(Dto):
 class SettingsDiscountProfileList(Dto):
     """One page of ``SettingsDiscountProfile`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/discount_profiles",)
 
     data: list[SettingsDiscountProfile] | None = None
     object: str | None = None
@@ -185,15 +181,12 @@ class SettingsDiscountProfileList(Dto):
 class SettingsPaymentProcessor(Dto):
     """The settings payment processor body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/payment_processors",)
 
     accounting_code: SettingsPaymentProcessorAccountingCode | None = None
     conversion_rate: float | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: SettingsPaymentProcessorCurrency | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     disconnected: bool | None = None
     display_name: str | None = None
@@ -203,7 +196,6 @@ class SettingsPaymentProcessor(Dto):
     integration_state: str | None = None
     is_default: bool | None = None
     is_foreign_currency: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -216,7 +208,6 @@ class SettingsPaymentProcessor(Dto):
 class SettingsPaymentProcessorList(Dto):
     """One page of ``SettingsPaymentProcessor`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/payment_processors",)
 
     data: list[SettingsPaymentProcessor] | None = None
     object: str | None = None
@@ -227,10 +218,8 @@ class SettingsPaymentProcessorList(Dto):
 class SettingsShippingProfile(Dto):
     """The settings shipping profile body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/shipping_profiles",)
 
     accounting_code: SettingsShippingProfileAccountingCode | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -238,10 +227,8 @@ class SettingsShippingProfile(Dto):
     fixed_amount: float | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     integration_connection: Any = None
     invoice_note: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -258,7 +245,6 @@ class SettingsShippingProfile(Dto):
 class SettingsShippingProfileList(Dto):
     """One page of ``SettingsShippingProfile`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/shipping_profiles",)
 
     data: list[SettingsShippingProfile] | None = None
     object: str | None = None
@@ -269,21 +255,16 @@ class SettingsShippingProfileList(Dto):
 class SettingsPricingLevel(Dto):
     """The settings pricing level body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/pricing_levels",)
 
-    # Null in every record measured, so untyped.
     built_in_item: Any = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     is_default: Any = None
     is_tax_inclusive: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -298,7 +279,6 @@ class SettingsPricingLevel(Dto):
 class SettingsPricingLevelList(Dto):
     """One page of ``SettingsPricingLevel`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/pricing_levels",)
 
     data: list[SettingsPricingLevel] | None = None
     object: str | None = None
@@ -309,19 +289,15 @@ class SettingsPricingLevelList(Dto):
 class SettingsTimeZone(Dto):
     """The settings time zone body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/time_zones",)
 
     code: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     dst_enabled: bool | None = None
     hour: int | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     minute: int | None = None
@@ -336,7 +312,6 @@ class SettingsTimeZone(Dto):
 class SettingsTimeZoneList(Dto):
     """One page of ``SettingsTimeZone`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/time_zones",)
 
     data: list[SettingsTimeZone] | None = None
     object: str | None = None
@@ -347,11 +322,9 @@ class SettingsTimeZoneList(Dto):
 class SettingsWarehouse(Dto):
     """The settings warehouse body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/warehouses",)
 
     city: str | None = None
     country: SettingsWarehouseCountry | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -359,7 +332,6 @@ class SettingsWarehouse(Dto):
     href: str | None = None
     id: str | None = None
     is_default: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -373,7 +345,6 @@ class SettingsWarehouse(Dto):
 class SettingsWarehouseList(Dto):
     """One page of ``SettingsWarehouse`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/warehouses",)
 
     data: list[SettingsWarehouse] | None = None
     object: str | None = None
@@ -384,19 +355,16 @@ class SettingsWarehouseList(Dto):
 class SettingsCurrency(Dto):
     """The settings currency body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/currencies",)
 
     cash_rounding_interval: float | None = None
     code: str | None = None
     conversion_rate: float | None = None
     country: SettingsCurrencyCountry | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     decimal_places: int | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -409,7 +377,6 @@ class SettingsCurrency(Dto):
 class SettingsCurrencyList(Dto):
     """One page of ``SettingsCurrency`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/currencies",)
 
     data: list[SettingsCurrency] | None = None
     object: str | None = None
@@ -420,18 +387,15 @@ class SettingsCurrencyList(Dto):
 class SettingsItemGroup(Dto):
     """The settings item group body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/item_groups",)
 
     accounting_code: SettingsItemGroupAccountingCode | None = None
     code: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -443,7 +407,6 @@ class SettingsItemGroup(Dto):
 class SettingsItemGroupList(Dto):
     """One page of ``SettingsItemGroup`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/item_groups",)
 
     data: list[SettingsItemGroup] | None = None
     object: str | None = None
@@ -454,18 +417,14 @@ class SettingsItemGroupList(Dto):
 class CustomObject(Dto):
     """The custom object body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/custom_objects",)
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     custom_component: Any = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -477,10 +436,6 @@ class CustomObject(Dto):
 class CustomObjectList(Dto):
     """One page of ``CustomObject`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/custom_objects",
-        "GET /api/{api_version}/accounts/{account_id}/custom_objects",
-    )
 
     data: list[CustomObject] | None = None
     object: str | None = None
@@ -491,17 +446,14 @@ class CustomObjectList(Dto):
 class SettingsTax(Dto):
     """The settings tax body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/taxes",)
 
     code: str | None = None
     country: SettingsTaxCountry | None = None
     country_tax_by_states: list[SettingsTaxCountryTaxByState] | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -513,7 +465,6 @@ class SettingsTax(Dto):
 class SettingsTaxList(Dto):
     """One page of ``SettingsTax`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/taxes",)
 
     data: list[SettingsTax] | None = None
     object: str | None = None
@@ -524,16 +475,13 @@ class SettingsTaxList(Dto):
 class SettingsVariation(Dto):
     """The settings variation body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/variations",)
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -544,7 +492,6 @@ class SettingsVariation(Dto):
 class SettingsVariationList(Dto):
     """One page of ``SettingsVariation`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/variations",)
 
     data: list[SettingsVariation] | None = None
     object: str | None = None
@@ -555,9 +502,7 @@ class SettingsVariationList(Dto):
 class SettingsPaymentTerm(Dto):
     """The settings payment term body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/payment_terms",)
 
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     duration: SettingsPaymentTermDuration | None = None
@@ -571,7 +516,6 @@ class SettingsPaymentTerm(Dto):
 class SettingsPaymentTermList(Dto):
     """One page of ``SettingsPaymentTerm`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/payment_terms",)
 
     data: list[SettingsPaymentTerm] | None = None
     object: str | None = None
@@ -582,12 +526,6 @@ class SettingsPaymentTermList(Dto):
 class SettingsItemGroups(Dto):
     """The settings item groups body, under ``item_group``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/settings/item_groups",
-        "GET /api/{api_version}/settings/item_groups/{item_group_id}",
-        "PATCH /api/{api_version}/settings/item_groups/{item_group_id}",
-        "POST /api/{api_version}/settings/item_groups/{item_group_id}/billing_preferences",
-    )
 
     ENVELOPE_KEY = "item_group"
 
@@ -613,25 +551,18 @@ class SettingsItemGroups(Dto):
 
 
 class SettingsCustomLogicScript(Dto):
-    """The settings custom logic script body, under ``custom_logic_script``; measured from the v4
-    collection, not the instance, so read ``.map`` when a field is unexpectedly None."""
+    """The settings custom logic script body, under ``custom_logic_script``. Read ``.map`` when a field is unexpectedly None."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/custom_logic_scripts/{custom_logic_script_id}",
-    )
 
     ENVELOPE_KEY = "custom_logic_script"
 
     action_name: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -644,7 +575,6 @@ class SettingsCustomLogicScript(Dto):
 class SettingsCurrencyRead(Dto):
     """The settings currency read body, under ``currency``: the record the listing serves."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/currencies/{currency_id}",)
 
     ENVELOPE_KEY = "currency"
 
@@ -652,13 +582,11 @@ class SettingsCurrencyRead(Dto):
     code: str | None = None
     conversion_rate: float | None = None
     country: SettingsCurrencyReadCountry | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     decimal_places: int | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -671,22 +599,17 @@ class SettingsCurrencyRead(Dto):
 class SettingsCustomObjectCustomize(Dto):
     """The settings custom object customize body, under ``custom_object``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/settings/custom_objects/{custom_object_id}/customize",
-    )
 
     ENVELOPE_KEY = "custom_object"
 
     configuration: SettingsCustomObjectCustomizeConfiguration | None = None
     created: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -701,25 +624,17 @@ class SettingsCustomObjectCustomize(Dto):
 class SettingsCustomObjects(Dto):
     """The settings custom objects body, under ``custom_object``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/custom_objects/{custom_object_id}",
-        "POST /api/{api_version}/settings/custom_objects",
-        "PATCH /api/{api_version}/settings/custom_objects/{custom_object_id}",
-    )
 
     ENVELOPE_KEY = "custom_object"
 
     created: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     custom_component: Any = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -734,22 +649,15 @@ class SettingsCustomObjects(Dto):
 class SettingsVariations(Dto):
     """The settings variations body, under ``variation``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/settings/variations",
-        "GET /api/{api_version}/settings/variations/{variation_id}",
-        "PATCH /api/{api_version}/settings/variations/{variation_id}",
-    )
 
     ENVELOPE_KEY = "variation"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -762,21 +670,17 @@ class SettingsVariations(Dto):
 class SettingsTimeZoneRead(Dto):
     """The settings time zone read body, under ``time_zone``: the record the listing serves."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/time_zones/{time_zone_id}",)
 
     ENVELOPE_KEY = "time_zone"
 
     code: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     dst_enabled: bool | None = None
     hour: int | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     minute: int | None = None
@@ -791,7 +695,6 @@ class SettingsTimeZoneRead(Dto):
 class SettingsCustomLogicScripts(Dto):
     """The settings custom logic scripts body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/custom_logic_scripts",)
 
     data: list[Any] | None = None
     object: str | None = None
@@ -802,7 +705,6 @@ class SettingsCustomLogicScripts(Dto):
 class Settings(Dto):
     """The settings body, under ``settings``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings",)
 
     ENVELOPE_KEY = "settings"
 
@@ -813,17 +715,11 @@ class Settings(Dto):
 class SettingsFieldSettingsItem(Dto):
     """The settings field settings item body."""
 
-    MEASURED_FROM = (
-        "PATCH /api/{api_version}/settings/field_settings/account",
-        "PATCH /api/{api_version}/settings/field_settings/item",
-        "PATCH /api/{api_version}/settings/general_settings/account",
-    )
 
     data: list[SettingsFieldSettingsItemData] | None = None
     general_settings: SettingsFieldSettingsItemGeneralSettings | None = None
     message: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     pagination: Any = None
     url: str | None = None
 
@@ -831,7 +727,6 @@ class SettingsFieldSettingsItem(Dto):
 class SettingsGeneralSettingsItemUpdated(Dto):
     """What ``update_settings_general_settings_item`` answers, under ``general_settings``."""
 
-    MEASURED_FROM = ("PATCH /api/{api_version}/settings/general_settings/item",)
 
     ENVELOPE_KEY = "general_settings"
 
@@ -879,13 +774,10 @@ class SettingsFieldSettingsItemGeneralSettings(Dto):
 class SettingsFieldSettingsItemData(Dto):
     """One entry of a :class:`SettingsFieldSettingsItem`'s ``data``."""
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_code: str | None = None
-    # Null in every record measured, so untyped.
     editable: Any = None
     enabled: bool | None = None
     entity: str | None = None
@@ -895,11 +787,9 @@ class SettingsFieldSettingsItemData(Dto):
     group_key: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     mandatory: bool | None = None
-    # Null in every record measured, so untyped.
     note: Any = None
     object: str | None = None
     sort_order: int | None = None
@@ -1073,7 +963,6 @@ class SettingsTaxCountryTaxByState(Dto):
     last_updated_on: str | None = None
     object: str | None = None
     rate: float | None = None
-    # Null in every record measured, so untyped.
     state: Any = None
     status: str | None = None
 
@@ -1148,7 +1037,6 @@ class SettingsGeneralSettingsItemUpdatedDetailAvailablePricingMethods(Dto):
 class SettingsGeneralSettingsItemUpdatedDetailItemGrouping(Dto):
     """A :class:`SettingsGeneralSettingsItemUpdatedDetail`'s ``item_grouping``."""
 
-    # Null in every record measured, so untyped.
     default_group: Any = None
     enabled: str | None = None
 
@@ -1156,7 +1044,6 @@ class SettingsGeneralSettingsItemUpdatedDetailItemGrouping(Dto):
 class SettingsGeneralSettingsItemUpdatedDetailItemManagement(Dto):
     """A :class:`SettingsGeneralSettingsItemUpdatedDetail`'s ``item_management``."""
 
-    # Null in every record measured, so untyped.
     default_manager: Any = None
     enabled: str | None = None
 
@@ -1175,7 +1062,6 @@ class SettingsGeneralSettingsItemUpdatedDetailPricingPeriodCanVaryFromChargingPe
     """A :class:`SettingsGeneralSettingsItemUpdatedDetail`'s
     ``pricing_period_can_vary_from_charging_period``."""
 
-    # Null in every record measured, so untyped.
     default_pricing_period: Any = None
     enabled: str | None = None
 
@@ -1185,7 +1071,6 @@ class SettingsGeneralSettingsItemUpdatedDetailSalePriceEnteredIsInclusiveOfTax(D
     ``sale_price_entered_is_inclusive_of_tax``."""
 
     enabled: str | None = None
-    # Null in every record measured, so untyped.
     tax: Any = None
     tax_included_in_sales_price_is_based_on: str | None = None
 
@@ -1218,7 +1103,6 @@ class SettingsGeneralSettingsItemUpdatedDetailPreOrder(Dto):
 class SettingsFieldSettingsItemGeneralSettingsAccountAccountGrouping(Dto):
     """A :class:`SettingsFieldSettingsItemGeneralSettingsAccount`'s ``account_grouping``."""
 
-    # Null in every record measured, so untyped.
     default_group: Any = None
     enabled: str | None = None
 
@@ -1227,7 +1111,6 @@ class SettingsFieldSettingsItemGeneralSettingsAccountCreationOfSubsidiaryAccount
     """A :class:`SettingsFieldSettingsItemGeneralSettingsAccount`'s
     ``creation_of_subsidiary_account``."""
 
-    # Null in every record measured, so untyped.
     default_group: Any = None
     enabled: str | None = None
 
@@ -1235,7 +1118,6 @@ class SettingsFieldSettingsItemGeneralSettingsAccountCreationOfSubsidiaryAccount
 class SettingsFieldSettingsItemGeneralSettingsAccountAccountManagement(Dto):
     """A :class:`SettingsFieldSettingsItemGeneralSettingsAccount`'s ``account_management``."""
 
-    # Null in every record measured, so untyped.
     default_manager: Any = None
     enabled: str | None = None
 
@@ -1244,7 +1126,6 @@ class SettingsFieldSettingsItemGeneralSettingsAccountSalesRepTrackingAtAccountLe
     """A :class:`SettingsFieldSettingsItemGeneralSettingsAccount`'s
     ``sales_rep_tracking_at_account_level``."""
 
-    # Null in every record measured, so untyped.
     default_sales_rep_tracking: Any = None
     enabled: str | None = None
 
@@ -1253,7 +1134,6 @@ class SettingsFieldSettingsItemGeneralSettingsAccountReferralTrackingAtAccountLe
     """A :class:`SettingsFieldSettingsItemGeneralSettingsAccount`'s
     ``referral_tracking_at_account_level``."""
 
-    # Null in every record measured, so untyped.
     default_referral_tracking: Any = None
     enabled: str | None = None
 
@@ -1313,19 +1193,13 @@ class SettingsGeneralSettingsItemUpdatedDetailPurchasePriceEnteredIsInclusiveOfT
 class SettingsCustomObjectDefinition(Dto):
     """One custom object definition, as ``/settings/custom_objects`` serves it."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/custom_objects",
-        "GET /api/{api_version}/settings/custom_objects/{custom_object_id}",
-    )
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -1338,7 +1212,6 @@ class SettingsCustomObjectDefinition(Dto):
 class SettingsCustomObjectDefinitionList(Dto):
     """One page of ``SettingsCustomObjectDefinition`` records, under ``data``; paged by cursor."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/custom_objects",)
 
     data: list[SettingsCustomObjectDefinition] | None = None
     object: str | None = None
@@ -1349,7 +1222,6 @@ class SettingsCustomObjectDefinitionList(Dto):
 class SettingsCustomObjectDefinitionRead(SettingsCustomObjectDefinition):
     """One custom object definition, under ``custom_object``: the record the listing serves."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/custom_objects/{custom_object_id}",)
 
     ENVELOPE_KEY = "custom_object"
 
@@ -1357,11 +1229,6 @@ class SettingsCustomObjectDefinitionRead(SettingsCustomObjectDefinition):
 class SettingsDiscountProfileRead(SettingsDiscountProfile):
     """One discount profile, under ``discount_profile``: the record the listing serves."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/discount_profiles/{discount_profile_id}",
-        "POST /api/{api_version}/settings/discount_profiles",
-        "PATCH /api/{api_version}/settings/discount_profiles/{discount_profile_id}",
-    )
 
     ENVELOPE_KEY = "discount_profile"
 
@@ -1369,7 +1236,6 @@ class SettingsDiscountProfileRead(SettingsDiscountProfile):
 class SettingsPaymentProcessorRead(SettingsPaymentProcessor):
     """One payment processor, under ``payment_processor``: the record the listing serves."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/payment_processors/{payment_processor_id}",)
 
     ENVELOPE_KEY = "payment_processor"
 
@@ -1377,7 +1243,6 @@ class SettingsPaymentProcessorRead(SettingsPaymentProcessor):
 class SettingsPaymentTermRead(SettingsPaymentTerm):
     """One payment term, under ``payment_term``: the record the listing serves."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/payment_terms/{payment_term_id}",)
 
     ENVELOPE_KEY = "payment_term"
 
@@ -1385,10 +1250,6 @@ class SettingsPaymentTermRead(SettingsPaymentTerm):
 class SettingsPricingLevelRead(SettingsPricingLevel):
     """One pricing level, under ``pricing_level``: the record the listing serves."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/pricing_levels/{pricing_level_id}",
-        "PATCH /api/{api_version}/settings/pricing_levels/{pricing_level_id}",
-    )
 
     ENVELOPE_KEY = "pricing_level"
 
@@ -1396,10 +1257,6 @@ class SettingsPricingLevelRead(SettingsPricingLevel):
 class SettingsShippingProfileRead(SettingsShippingProfile):
     """One shipping profile, under ``shipping_profile``: the record the listing serves."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/shipping_profiles/{shipping_profile_id}",
-        "POST /api/{api_version}/settings/shipping_profiles",
-    )
 
     ENVELOPE_KEY = "shipping_profile"
 
@@ -1407,7 +1264,6 @@ class SettingsShippingProfileRead(SettingsShippingProfile):
 class SettingsTaxRead(SettingsTax):
     """One tax, under ``tax``: the record the listing serves."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/taxes/{tax_id}",)
 
     ENVELOPE_KEY = "tax"
 
@@ -1415,11 +1271,6 @@ class SettingsTaxRead(SettingsTax):
 class SettingsWarehouseRead(SettingsWarehouse):
     """One warehouse, under ``warehouse``: the record the listing serves."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/warehouses/{warehouse_id}",
-        "POST /api/{api_version}/settings/warehouses",
-        "PATCH /api/{api_version}/settings/warehouses/{warehouse_id}",
-    )
 
     ENVELOPE_KEY = "warehouse"
 
@@ -1427,7 +1278,6 @@ class SettingsWarehouseRead(SettingsWarehouse):
 class SettingsFieldSettingList(Dto):
     """One page of ``SettingsFieldSettingsItemData`` records, under ``data``; paged by cursor."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/field_settings",)
 
     data: list[SettingsFieldSettingsItemData] | None = None
     object: str | None = None
@@ -1438,7 +1288,6 @@ class SettingsFieldSettingList(Dto):
 class SettingsFieldSettingRead(SettingsFieldSettingsItemData):
     """One field setting, under ``field_setting``: the record the listing serves."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/field_settings/{field_setting_id}",)
 
     ENVELOPE_KEY = "field_setting"
 
@@ -1447,14 +1296,9 @@ class SettingsCustomLogicScriptSaved(SettingsCustomLogicScript):
     """What the custom logic script writes answer, under ``custom_logic_script``: the read's fields
     and ``code``, which the server does not store."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/settings/custom_logic_scripts",
-        "PATCH /api/{api_version}/settings/custom_logic_scripts/{custom_logic_script_id}",
-    )
 
     ENVELOPE_KEY = "custom_logic_script"
 
-    # Null in every record measured, so untyped.
     code: Any = None
 
 
@@ -1462,7 +1306,6 @@ class SettingsPaymentTermUpdated(SettingsPaymentTermRead):
     """What ``update_settings_payment_term`` answers, under ``payment_term``: the read's fields and
     ``display_order``."""
 
-    MEASURED_FROM = ("PATCH /api/{api_version}/settings/payment_terms/{payment_term_id}",)
 
     ENVELOPE_KEY = "payment_term"
 
@@ -1472,20 +1315,13 @@ class SettingsPaymentTermUpdated(SettingsPaymentTermRead):
 class SettingsPaymentProcessorSaved(Dto):
     """What ``create_settings_payment_processor`` answers, under ``payment_processor``: ``gateway_name`` and ``credentials`` where the read has ``provider``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/settings/payment_processors",
-        "PATCH /api/{api_version}/settings/payment_processors/{payment_processor_id}",
-    )
 
     ENVELOPE_KEY = "payment_processor"
 
-    # Null in every record measured, so untyped.
     accounting_code: Any = None
     conversion_rate: float | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     credentials: Any = None
     currency: SettingsPaymentProcessorSavedCurrency | None = None
     description: str | None = None
@@ -1498,7 +1334,6 @@ class SettingsPaymentProcessorSaved(Dto):
     integration_state: str | None = None
     is_default: bool | None = None
     is_foreign_currency: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -1521,25 +1356,20 @@ class SettingsPaymentProcessorSavedCurrency(Dto):
 class SettingsPaymentTermCreated(Dto):
     """What ``create_settings_payment_term`` answers, under ``payment_term``: a flat ``period`` and ``duration`` where the read nests them."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/settings/payment_terms",)
 
     ENVELOPE_KEY = "payment_term"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     duration: int | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     ordering: Any = None
     period: str | None = None
     status: str | None = None
@@ -1548,39 +1378,30 @@ class SettingsPaymentTermCreated(Dto):
 class SettingsPricingLevelCreated(Dto):
     """What ``create_settings_pricing_level`` answers, under ``pricing_level``: ``price_tax_inclusive`` where the read has three tax fields."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/settings/pricing_levels",)
 
     ENVELOPE_KEY = "pricing_level"
 
-    # Null in every record measured, so untyped.
     built_in_item: Any = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     is_default: Any = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
     object: str | None = None
     ordering: int | None = None
-    # Null in every record measured, so untyped.
     price_tax_inclusive: Any = None
     status: str | None = None
-    # Null in every record measured, so untyped.
     tax_exempt: Any = None
 
 
 class SettingsGeneralSettings(Dto):
     """One group of general settings, under ``general_settings``, keyed by the group; ``item`` and ``order`` also carry ``product``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/general_settings/{group}",)
 
     ENVELOPE_KEY = "general_settings"
 
@@ -1605,7 +1426,6 @@ class SettingsGeneralSettingsDashboard(Dto):
     """A :class:`SettingsGeneralSettings`'s ``dashboard``."""
 
     accounting: str | None = None
-    # Null in every record measured, so untyped.
     defaultDashboard: Any = None
     executive: str | None = None
     finance: str | None = None
@@ -1618,7 +1438,6 @@ class SettingsGeneralSettingsDateAndTime(Dto):
     """A :class:`SettingsGeneralSettings`'s ``date_and_time``."""
 
     date_format: str | None = None
-    # Null in every record measured, so untyped.
     first_day_of_week: Any = None
     time_format: str | None = None
     time_zone: str | None = None
@@ -1638,7 +1457,6 @@ class SettingsGeneralSettingsOrder(Dto):
     allow_name_to_be_changed_in_order: str | None = None
     allow_unit_price_to_be_changed_in_order: str | None = None
     default_fulfillment_status: str | None = None
-    # Null in every record measured, so untyped.
     default_shipping_profile: Any = None
     displayed_price_is_inclusive_of_tax: str | None = None
     enable_booking: str | None = None
@@ -1658,7 +1476,6 @@ class SettingsGeneralSettingsOrder(Dto):
 class SettingsGeneralSettingsOrderOrderManagement(Dto):
     """A :class:`SettingsGeneralSettingsOrder`'s ``order_management``."""
 
-    # Null in every record measured, so untyped.
     default_manager: Any = None
     enabled: str | None = None
 
@@ -1666,7 +1483,6 @@ class SettingsGeneralSettingsOrderOrderManagement(Dto):
 class SettingsGeneralSettingsOrderReferralTrackingAtOrderLevel(Dto):
     """A :class:`SettingsGeneralSettingsOrder`'s ``referral_tracking_at_order_level``."""
 
-    # Null in every record measured, so untyped.
     default_referral_tracking: Any = None
     enabled: str | None = None
 
@@ -1674,7 +1490,6 @@ class SettingsGeneralSettingsOrderReferralTrackingAtOrderLevel(Dto):
 class SettingsGeneralSettingsOrderSalesRepTrackingAtOrderLevel(Dto):
     """A :class:`SettingsGeneralSettingsOrder`'s ``sales_rep_tracking_at_order_level``."""
 
-    # Null in every record measured, so untyped.
     default_sales_rep_tracking: Any = None
     enabled: str | None = None
 
@@ -1758,7 +1573,6 @@ class SettingsGeneralSettingsSecurity(Dto):
 class SettingsGeneralSettingsTransaction(Dto):
     """A :class:`SettingsGeneralSettings`'s ``transaction``."""
 
-    # Null in every record measured, so untyped.
     accounting_method: Any = None
     allow_modification_of_following_credit_note_fields: (
         SettingsGeneralSettingsTransactionAllowModificationOfFollowingCreditNoteFields | None
@@ -1779,7 +1593,6 @@ class SettingsGeneralSettingsTransaction(Dto):
         str | None
     ) = None
     default_accounting_codes: SettingsGeneralSettingsTransactionDefaultAccountingCodes | None = None
-    # Null in every record measured, so untyped.
     default_shipping_profile: Any = None
     disable_notification_for_invoice_with_charges_of_zero_amount: str | None = None
     displayed_price_is_inclusive_of_tax: str | None = None

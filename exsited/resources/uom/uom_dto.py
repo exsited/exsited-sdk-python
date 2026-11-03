@@ -16,24 +16,17 @@ __all__ = [
 class SettingsUom(Dto):
     """The settings unit of measurement body, under ``uom``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/uom",
-        "GET /api/{api_version}/settings/uom/{uom_id}",
-    )
 
     ENVELOPE_KEY = "uom"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     custom_type: Any = None
     decimal_places: int | None = None
     description: str | None = None
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -47,7 +40,6 @@ class SettingsUom(Dto):
 class SettingsUomList(Dto):
     """One page of ``SettingsUom`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/uom",)
 
     data: list[SettingsUom] | None = None
     object: str | None = None

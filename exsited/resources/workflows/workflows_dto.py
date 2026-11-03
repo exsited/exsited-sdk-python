@@ -26,7 +26,6 @@ __all__ = [
 class WorkflowList(Dto):
     """One page of what ``get_workflows`` lists, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/workflows",)
 
     data: list[Workflow] | None = None
     object: str | None = None
@@ -40,11 +39,9 @@ class Workflow(Dto):
     object: str | None = None
     id: str | None = None
     status: str | None = None
-    # Null in every record measured, so untyped.
     code: Any = None
     name: str | None = None
     display_name: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     entity: str | None = None
     entity_id: int | None = None
@@ -52,7 +49,6 @@ class Workflow(Dto):
     is_pre_built: bool | None = None
     enable_stage: bool | None = None
     current_version: WorkflowCurrentVersion | None = None
-    # Null in every record measured, so untyped.
     custom_form: Any = None
     created_on: str | None = None
     last_updated_on: str | None = None
@@ -65,7 +61,6 @@ class WorkflowView(Workflow):
     """One workflow, under ``workflow``: what ``get_workflow`` answers, and the create and the
     update, which the handler answers through the same read."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/workflows/{workflow_id}",)
 
     ENVELOPE_KEY = "workflow"
 
@@ -95,7 +90,6 @@ class WorkflowLastUpdatedBy(Dto):
 class WorkflowMilestoneList(Dto):
     """One page of what ``get_workflow_milestones`` lists, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/workflows/{workflow_uuid}/milestones",)
 
     data: list[WorkflowMilestone] | None = None
     object: str | None = None
@@ -107,23 +101,18 @@ class WorkflowMilestone(Dto):
     """One entry of a :class:`WorkflowMilestoneList`'s ``data``."""
 
     activity_definition: WorkflowMilestoneActivityDefinition | None = None
-    # Null in every record measured, so untyped.
     auto_create: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     description: Any = None
     display_name: str | None = None
-    # Null in every record measured, so untyped.
     estimated_hours: Any = None
     href: str | None = None
-    # Null in every record measured, so untyped.
     icon: Any = None
     id: str | None = None
     last_updated_on: str | None = None
     name: str | None = None
     object: str | None = None
     priority: str | None = None
-    # Null in every record measured, so untyped.
     sort_order: Any = None
     status: str | None = None
     workflow: WorkflowMilestoneDetail | None = None
@@ -134,7 +123,6 @@ class WorkflowMilestoneView(WorkflowMilestone):
     """One milestone definition, under ``workflow_milestone``: what ``get_workflow_milestone``
     answers, the same fields as a listed one."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/workflows/{workflow_id}/milestones/{milestone_id}",)
 
     ENVELOPE_KEY = "workflow_milestone"
 

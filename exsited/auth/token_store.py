@@ -150,7 +150,7 @@ def build_credentials_namespace(
     Example::
 
         build_credentials_namespace(
-            "https://dev-api.exsited.com", "abc", "secret",
+            "https://your-instance.example.com", "abc", "secret",
             grant_type="client_credentials",
         )
     """

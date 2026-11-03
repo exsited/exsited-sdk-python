@@ -188,8 +188,7 @@ def deactivate_item(
     raise_on_error: bool | None = None,
     response_format: str | None = None,
 ) -> ApiResponse[Item]:
-    """Deactivate an item - ``POST /items/{item_id}/deactivate``; no body, and the recorded call
-    answered ``500``."""
+    """Deactivate an item - ``POST /items/{item_id}/deactivate``; no body."""
     return client.send_post_request(
         items_urls.ITEM_DEACTIVATE,
         path_params={"item_id": item_id},
@@ -206,8 +205,7 @@ def reactivate_item(
     raise_on_error: bool | None = None,
     response_format: str | None = None,
 ) -> ApiResponse[Item]:
-    """Reactivate a deactivated item - ``POST /items/{item_id}/reactivate``; no body, and the
-    recorded call answered ``500``."""
+    """Reactivate a deactivated item - ``POST /items/{item_id}/reactivate``; no body."""
     return client.send_post_request(
         items_urls.ITEM_REACTIVATE,
         path_params={"item_id": item_id},
@@ -877,8 +875,7 @@ def get_item_kpis(
     raise_on_error: bool | None = None,
     response_format: str | None = None,
 ) -> ApiResponse:
-    """Retrieve an item's KPI summary - ``GET /items/{item_id}/kpis``, under ``item_kpis``; empty
-    for every item measured, so no typed view."""
+    """Retrieve an item's KPI summary - ``GET /items/{item_id}/kpis``, under ``item_kpis``; no typed view."""
     return client.send_get_request(
         items_urls.ITEM_KPIS,
         path_params={"item_id": item_id},

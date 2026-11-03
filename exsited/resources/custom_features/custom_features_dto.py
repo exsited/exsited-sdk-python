@@ -24,7 +24,6 @@ __all__ = [
 class CustomFeatureList(Dto):
     """One page of what ``get_custom_features`` lists, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/custom_feature",)
 
     data: list[CustomFeatureDetail] | None = None
     object: str | None = None
@@ -35,12 +34,6 @@ class CustomFeatureList(Dto):
 class CustomFeature(Dto):
     """The custom feature body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/custom_feature/{custom_feature_id}",
-        "POST /api/{api_version}/custom_feature",
-        "PATCH /api/{api_version}/custom_feature/{custom_feature_id}",
-        "POST /api/{api_version}/custom_feature/{custom_feature_id}",
-    )
 
     custom_feature: CustomFeatureDetail | None = None
     message: str | None = None
@@ -51,10 +44,8 @@ class CustomFeatureDetail(Dto):
 
     activity_logs: list[Any] | None = None
     child_custom_components: list[Any] | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     custom_component: Any = None
     custom_forms: list[CustomFeatureDetailCustomForm] | None = None
     custom_objects: list[Any] | None = None
@@ -62,7 +53,6 @@ class CustomFeatureDetail(Dto):
     display_name: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None

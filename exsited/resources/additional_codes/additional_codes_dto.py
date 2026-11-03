@@ -14,11 +14,6 @@ __all__ = [
 class SettingsAdditionalCode(Dto):
     """The settings additional code body, under ``additional_code``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/additional_codes",
-        "GET /api/{api_version}/settings/additional_codes/{additional_code_id}",
-        "POST /api/{api_version}/settings/additional_codes",
-    )
 
     ENVELOPE_KEY = "additional_code"
 
@@ -34,7 +29,6 @@ class SettingsAdditionalCode(Dto):
 class SettingsAdditionalCodeList(Dto):
     """One page of ``SettingsAdditionalCode`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/additional_codes",)
 
     data: list[SettingsAdditionalCode] | None = None
     object: str | None = None

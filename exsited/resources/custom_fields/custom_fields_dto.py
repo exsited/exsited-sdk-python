@@ -16,14 +16,9 @@ __all__ = [
 class SettingsCustomField(Dto):
     """The settings custom field body, under ``custom_field``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/custom_fields",
-        "GET /api/{api_version}/settings/custom_fields/{custom_field_id}",
-    )
 
     ENVELOPE_KEY = "custom_field"
 
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     description: str | None = None
@@ -31,7 +26,6 @@ class SettingsCustomField(Dto):
     href: str | None = None
     id: str | None = None
     is_mandatory: bool | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -44,7 +38,6 @@ class SettingsCustomField(Dto):
 class SettingsCustomFieldList(Dto):
     """One page of ``SettingsCustomField`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/custom_fields",)
 
     data: list[SettingsCustomField] | None = None
     object: str | None = None

@@ -94,7 +94,7 @@ class User(Dto):
 
 
 class CustomForm(Dto):
-    """The custom form an item was created under. Present on all 665 items."""
+    """The custom form an item was created under."""
 
     object: str | None = None
     id: str | None = None
@@ -333,25 +333,25 @@ class Item(Dto):
     version: int | None = None
     href: str | None = None
 
-    # Capability flags. All four present and boolean on all 665.
+    # Capability flags. All four are boolean.
     sale_enabled: bool | None = None
     purchase_enabled: bool | None = None
     inventory_enabled: bool | None = None
     variations_enabled: bool | None = None
 
-    # Family position. Both booleans on all 665.
+    # Family position. Both are booleans.
     parent: bool | None = None
     child: bool | None = None
     parent_item_id: str | None = None
 
     custom_form: CustomForm | None = None
     manager: Reference | None = None
-    #: Set on 2 of 665 - nearly always null.
+    #: Nearly always null.
     group: Reference | None = None
 
     created_on: str | None = None
     created_by: User | None = None
-    #: Both null on 369 of 665 - an item that has never been edited.
+    #: Both null for an item that has never been edited.
     last_updated_on: str | None = None
     last_updated_by: User | None = None
 
@@ -370,12 +370,10 @@ class Item(Dto):
     use_variations: list[VariationOption] | None = None
     custom_objects: list[Any] | None = None
 
-    #: Present but empty on every record measured, so the element type is unknown.
     uoms: list[Any] | None = None
     custom_attributes: list[ItemCustomAttribute] | None = None
     activity_logs: list[Any] | None = None
 
-    #: Null on every record measured.
     base_uom: Any = None
     image_url: Any = None
 
@@ -693,14 +691,11 @@ class ItemPurchasePurchaseProperty(Dto):
 class ItemPurchaseSupplier(Dto):
     """One entry of a :class:`ItemPurchase`'s ``suppliers``."""
 
-    # Null in every record measured, so untyped.
     accounting_code: Any = None
     default_purchase_price: float | None = None
-    # Null in every record measured, so untyped.
     id: Any = None
     name: str | None = None
     pricing: Pricing | None = None
-    # Null in every record measured, so untyped.
     purchase_order_note: Any = None
     tax_configuration: ItemPurchaseSupplierTaxConfiguration | None = None
     tax_exempt_when_purchase: bool | None = None
@@ -719,7 +714,6 @@ class PackageDetailItem(Dto):
     item_id: str | None = None
     item_name: str | None = None
     quantity: float | None = None
-    # Null in every record measured, so untyped.
     uom: Any = None
 
 
@@ -755,10 +749,8 @@ class SaleChargeProperty(Dto):
 class PricingPricingModule(Dto):
     """One entry of a :class:`Pricing`'s ``pricing_module``."""
 
-    # Null in every record measured, so untyped.
     average_purchase_price: Any = None
     currency: str | None = None
-    # Null in every record measured, so untyped.
     last_purchase_price: Any = None
     price: float | None = None
     price_type: str | None = None

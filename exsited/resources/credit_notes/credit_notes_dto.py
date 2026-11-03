@@ -38,7 +38,6 @@ __all__ = [
 class CreditNote(Dto):
     """The credit note body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/credit_notes",)
 
     account: CreditNoteAccount | None = None
     account_id: str | None = None
@@ -75,10 +74,6 @@ class CreditNote(Dto):
 class CreditNoteList(Dto):
     """One page of ``CreditNote`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/credit_notes",
-        "GET /api/{api_version}/accounts/{account_id}/credit_notes",
-    )
 
     data: list[CreditNote] | None = None
     object: str | None = None
@@ -89,10 +84,6 @@ class CreditNoteList(Dto):
 class CreditNoteRead(Dto):
     """The credit note read body, under ``credit_note``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/credit_notes/{credit_note_id}",
-        "PATCH /api/{api_version}/credit_notes/{credit_note_id}",
-    )
 
     ENVELOPE_KEY = "credit_note"
 
@@ -243,7 +234,6 @@ class CreditNoteLastUpdatedBy(Dto):
 class CreditNoteItems(Dto):
     """A credit note's balance rows, under ``credit_note``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/credit_notes/{credit_note_id}/items",)
 
     ENVELOPE_KEY = "credit_note"
 
@@ -262,7 +252,6 @@ class CreditNoteItem(Dto):
     credit_note_from_invoice_credit: str | None = None
     credit_note_from_payment_method: str | None = None
     credit_note_total: str | None = None
-    # Null in every record measured, so untyped.
     invoice: Any = None
     object: str | None = None
     refund_from_blank_method: str | None = None
@@ -276,13 +265,9 @@ class CreditNoteItem(Dto):
 class CreditNoteApplications(Dto):
     """A credit note's applications, under ``credit_note``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/credit_notes/{credit_note_id}/credit_note_applications",
-    )
 
     ENVELOPE_KEY = "credit_note"
 
-    # Empty in every record measured, so its entries are untyped.
     applications: list[Any] | None = None
     href: str | None = None
     object: str | None = None
@@ -291,39 +276,28 @@ class CreditNoteApplications(Dto):
 class CreditNoteNote(Dto):
     """One note on a credit note, under ``note``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/credit_notes/{credit_note_id}/notes",
-        "GET /api/{api_version}/credit_notes/{credit_note_id}/notes/{note_id}",
-    )
 
     ENVELOPE_KEY = "note"
 
-    # Empty in every record measured, so its entries are untyped.
     attachments: list[Any] | None = None
     content: str | None = None
     created_by: CreditNoteNoteCreatedBy | None = None
     created_on: str | None = None
     credit_note: CreditNoteNoteDetail | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
-    # Empty in every record measured, so its entries are untyped.
     watchers: list[Any] | None = None
 
 
 class CreditNoteNoteList(Dto):
     """One page of ``CreditNoteNote`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/credit_notes/{credit_note_id}/notes",)
 
     data: list[CreditNoteNote] | None = None
     object: str | None = None

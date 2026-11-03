@@ -34,7 +34,6 @@ __all__ = [
 class ReturnMerchandiseAuthorisation(Dto):
     """The return merchandise authorisation body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/return_merchandise_authorisations",)
 
     account: ReturnMerchandiseAuthorisationAccount | None = None
     code: str | None = None
@@ -43,27 +42,22 @@ class ReturnMerchandiseAuthorisation(Dto):
     href: str | None = None
     id: str | None = None
     item_count: int | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     note: str | None = None
     object: str | None = None
     return_status: str | None = None
     rma_date: str | None = None
     sale_invoice: ReturnMerchandiseAuthorisationSaleInvoice | None = None
-    # Null in every record measured, so untyped.
     sale_order: Any = None
     status: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     warehouse: Any = None
 
 
 class ReturnMerchandiseAuthorisationList(Dto):
     """One page of ``ReturnMerchandiseAuthorisation`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/return_merchandise_authorisations",)
 
     data: list[ReturnMerchandiseAuthorisation] | None = None
     object: str | None = None
@@ -75,11 +69,6 @@ class InvoiceReturnMerchandiseAuthorisationReceive(Dto):
     """The invoice return merchandise authorisation receive body, under
     ``receive_return_merchandise_authorisation``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive",
-        "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive/{receive_uuid}",
-        "GET /api/{api_version}/return_merchandise_authorisations/{rma_code}/receive/{receive_uuid}",
-    )
 
     ENVELOPE_KEY = "receive_return_merchandise_authorisation"
 
@@ -95,10 +84,6 @@ class InvoiceReturnMerchandiseAuthorisationReceiveList(Dto):
     """One page of ``InvoiceReturnMerchandiseAuthorisationReceive`` records, under
     ``receive_return_merchandise_authorisations`` rather than ``data``; paged by offset."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive",
-        "GET /api/{api_version}/return_merchandise_authorisations/{rma_code}/receive",
-    )
 
     receive_return_merchandise_authorisations: (
         list[InvoiceReturnMerchandiseAuthorisationReceive] | None
@@ -113,10 +98,6 @@ class ReturnMerchandiseAuthorisationRead(Dto):
     """The return merchandise authorisation read body, under
     ``return_merchandise_authorisation``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_id}",
-        "GET /api/{api_version}/return_merchandise_authorisations/{rma_id}",
-    )
 
     ENVELOPE_KEY = "return_merchandise_authorisation"
 
@@ -127,9 +108,7 @@ class ReturnMerchandiseAuthorisationRead(Dto):
     href: str | None = None
     id: str | None = None
     item_count: int | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     lines: list[Any] | None = None
     note: str | None = None
@@ -138,20 +117,15 @@ class ReturnMerchandiseAuthorisationRead(Dto):
     return_status: str | None = None
     rma_date: str | None = None
     sale_invoice: ReturnMerchandiseAuthorisationReadSaleInvoice | None = None
-    # Null in every record measured, so untyped.
     sale_order: Any = None
     status: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     warehouse: Any = None
 
 
 class InvoiceReturnMerchandiseAuthorisations(Dto):
     """The invoice return merchandise authorisations body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations",
-    )
 
     data: list[ReturnMerchandiseAuthorisation] | None = None
     object: str | None = None
@@ -162,7 +136,6 @@ class InvoiceReturnMerchandiseAuthorisations(Dto):
 class ReturnMerchandiseAuthorisations(Dto):
     """The return merchandise authorisations body, under ``invoice``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/return_merchandise_authorisations",)
 
     ENVELOPE_KEY = "invoice"
 
@@ -198,9 +171,7 @@ class ReturnMerchandiseAuthorisationReadReceiveRma(Dto):
     created_on: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     quantity_received: float | None = None
@@ -222,9 +193,7 @@ class InvoiceReturnMerchandiseAuthorisationReceiveListData(Dto):
     created_on: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     quantity_received: float | None = None
@@ -239,9 +208,7 @@ class InvoiceReturnMerchandiseAuthorisationReceiveReceiveRma(Dto):
     created_on: str | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     quantity_received: float | None = None

@@ -19,7 +19,6 @@ __all__ = [
 class PurchaseExpress(Dto):
     """What ``create_purchase_express`` answers, under ``purchase_express``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/purchase_express",)
 
     ENVELOPE_KEY = "purchase_express"
 
@@ -34,34 +33,26 @@ class PurchaseExpress(Dto):
     custom_form: PurchaseExpressCustomForm | None = None
     due_date: str | None = None
     due_total: str | None = None
-    # Null in every record measured, so untyped.
     expected_completion_date: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     is_price_tax_inclusive: Any = None
     issue_date: str | None = None
     kpis: PurchaseExpressKpis | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     object: str | None = None
     operational_status: str | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     paid_amount: str | None = None
-    # Null in every record measured, so untyped.
     purchase_order_note: Any = None
-    # Null in every record measured, so untyped.
     sale_order: Any = None
     status: str | None = None
     subtotal: str | None = None
-    # Null in every record measured, so untyped.
     supplier_invoice_id: Any = None
     tax_total: str | None = None
     total: str | None = None
     version: int | None = None
-    # Null in every record measured, so untyped.
     warehouse: Any = None
 
 
@@ -105,18 +96,12 @@ class PurchaseExpressKpis(Dto):
     """A :class:`PurchaseExpress`'s ``kpis``."""
 
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     issue_date: Any = None
-    # Null in every record measured, so untyped.
     last_cancelled_on: Any = None
-    # Null in every record measured, so untyped.
     last_changed_on: Any = None
-    # Null in every record measured, so untyped.
     last_deleted_on: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_on: Any = None
     object: str | None = None
     total_expense: str | None = None

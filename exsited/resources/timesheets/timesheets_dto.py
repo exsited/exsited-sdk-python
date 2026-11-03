@@ -33,7 +33,6 @@ __all__ = [
 class Timesheet(Dto):
     """The timesheet body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/timesheets",)
 
     created_by: TimesheetCreatedBy | None = None
     created_on: str | None = None
@@ -54,7 +53,6 @@ class Timesheet(Dto):
 class TimesheetList(Dto):
     """One page of ``Timesheet`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/timesheets",)
 
     data: list[Timesheet] | None = None
     object: str | None = None
@@ -65,10 +63,6 @@ class TimesheetList(Dto):
 class Timesheets(Dto):
     """What ``create_timesheet`` and ``get_timesheet`` answer, under ``timesheet``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/timesheets",
-        "GET /api/{api_version}/timesheets/{timesheet_id}",
-    )
 
     ENVELOPE_KEY = "timesheet"
 
@@ -79,9 +73,7 @@ class Timesheets(Dto):
     href: str | None = None
     id: str | None = None
     labour: TimesheetsLabour | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     sale_order: TimesheetsSaleOrder | None = None
@@ -94,7 +86,6 @@ class Timesheets(Dto):
 class TimesheetUpdated(Dto):
     """What ``update_timesheet`` answers, under ``timesheet``."""
 
-    MEASURED_FROM = ("PATCH /api/{api_version}/timesheets/{timesheet_id}",)
 
     ENVELOPE_KEY = "timesheet"
 

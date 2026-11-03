@@ -26,10 +26,6 @@ __all__ = [
 class Usage(Dto):
     """The usage body, under ``usage``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/usages",
-        "GET /api/{api_version}/usages/{usage_id}",
-    )
 
     ENVELOPE_KEY = "usage"
 
@@ -47,12 +43,10 @@ class Usage(Dto):
     last_updated_on: str | None = None
     object: str | None = None
     quantity: float | None = None
-    # Null in every record measured, so untyped.
     source: Any = None
     start_time: str | None = None
     status: str | None = None
     type: str | None = None
-    # Null in every record measured, so untyped.
     uom: Any = None
     version: int | None = None
 
@@ -60,7 +54,6 @@ class Usage(Dto):
 class UsageList(Dto):
     """One page of ``Usage`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/usages",)
 
     data: list[Usage] | None = None
     object: str | None = None
@@ -71,7 +64,6 @@ class UsageList(Dto):
 class Usages(Dto):
     """The usages body, under ``usage``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/usages",)
 
     ENVELOPE_KEY = "usage"
 
@@ -105,10 +97,6 @@ class Usages(Dto):
 class UsageUpdated(Dto):
     """The usage updated body."""
 
-    MEASURED_FROM = (
-        "PATCH /api/{api_version}/usages/{usage_id}",
-        "PUT /api/{api_version}/usages/{usage_id}",
-    )
 
     note: str | None = None
     status: str | None = None

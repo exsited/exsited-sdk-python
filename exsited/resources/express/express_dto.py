@@ -31,63 +31,48 @@ __all__ = [
 class Express(Dto):
     """What ``create_express`` answers, under ``express``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/express",)
 
     ENVELOPE_KEY = "express"
 
     account: ExpressAccount | None = None
     activity_logs: list[ExpressActivityLog] | None = None
     allow_contract: bool | None = None
-    # Null in every record measured, so untyped.
     billing_address: Any = None
     billing_preferences: ExpressBillingPreferences | None = None
     billing_start_date: str | None = None
     communication_preferences: list[Any] | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
     currency: ExpressCurrency | None = None
     custom_attributes: list[Any] | None = None
     custom_form: ExpressCustomForm | None = None
-    # Null in every record measured, so untyped.
     customer_purchase_order_id: Any = None
-    # Null in every record measured, so untyped.
     description: Any = None
-    # Null in every record measured, so untyped.
     discount_profile: Any = None
     display_name: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     invoice_note: Any = None
     kpis: ExpressKpis | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     lines: list[ExpressLine] | None = None
-    # Null in every record measured, so untyped.
     manager: Any = None
     name: str | None = None
     next_billing_from_date: str | None = None
     object: str | None = None
     order_start_date: str | None = None
     order_type: str | None = None
-    # Null in every record measured, so untyped.
     origin: Any = None
     original_total: str | None = None
     pre_order: bool | None = None
     price_tax_inclusive: bool | None = None
     quote_converted: bool | None = None
     quote_order: bool | None = None
-    # Null in every record measured, so untyped.
     referral_account: Any = None
-    # Null in every record measured, so untyped.
     sales_rep: Any = None
-    # Null in every record measured, so untyped.
     shipping_address: Any = None
     shipping_cost: float | None = None
     shipping_line_items: list[Any] | None = None
-    # Null in every record measured, so untyped.
     shipping_profile: Any = None
     status: str | None = None
     subtotal: str | None = None
@@ -181,23 +166,16 @@ class ExpressLine(Dto):
 class ExpressKpis(Dto):
     """A :class:`Express`'s ``kpis``."""
 
-    # Null in every record measured, so untyped.
     deleted_at: Any = None
     estimated_total: str | None = None
-    # Null in every record measured, so untyped.
     last_cancelled_at: Any = None
-    # Null in every record measured, so untyped.
     last_changed_at: Any = None
-    # Null in every record measured, so untyped.
     last_invoice_issue_date: Any = None
     last_invoice_total: str | None = None
-    # Null in every record measured, so untyped.
     last_reactivated_at: Any = None
     monthly_recurring_revenue: str | None = None
-    # Null in every record measured, so untyped.
     next_invoice_issue_date: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     start_date: Any = None
     total_collected: str | None = None
     total_due: str | None = None
@@ -215,13 +193,10 @@ class ExpressActivityLog(Dto):
 class ExpressBillingPreferencesProformaProperties(Dto):
     """A :class:`ExpressBillingPreferences`'s ``proforma_properties``."""
 
-    # Null in every record measured, so untyped.
     acceptance_date: Any = None
     acceptance_required: bool | None = None
-    # Null in every record measured, so untyped.
     acceptance_term: Any = None
     payment_required: bool | None = None
-    # Null in every record measured, so untyped.
     terms_and_conditions: Any = None
 
 

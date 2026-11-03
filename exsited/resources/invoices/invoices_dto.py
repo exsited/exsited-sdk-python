@@ -66,18 +66,17 @@ class InvoiceCustomForm(Dto):
 
 
 class AccountingCode(Dto):
-    """The accounting code on a line. Present on all lines measured."""
+    """The accounting code on a line."""
 
     sales_revenue: str | None = None
 
 
 class LineTax(Dto):
-    """The tax block on a line. Present on all lines measured."""
+    """The tax block on a line."""
 
     object: str | None = None
     id: str | None = None
     name: str | None = None
-    #: A ``float``, 12 of 12 measured. The exception in a family of stringly typed money.
     rate: float | None = None
     amount: str | None = None
     href: str | None = None
@@ -96,15 +95,13 @@ class InvoiceLine(Dto):
     item_name: str | None = None
     item_uom: str | None = None
     item_warehouse: str | None = None
-    #: Not sent on any of the 12 lines measured; it reads ``None`` until a serialised item
-    #: appears.
     item_serial_or_batch_number: str | None = None
     item_order_quantity: int | None = None
     item_charge_type: str | None = None
     item_custom_attributes: list[Any] | None = None
     pricing_snapshot_price: float | None = None
     pricing_snapshot_uuid: str | None = None
-    #: Set on 46 of 130 - a recurring line only.
+    #: Set on a recurring line only.
     charging_start_date: str | None = None
     charging_end_date: str | None = None
     alternate_charging_start_date: str | None = None
@@ -123,7 +120,7 @@ class CustomAttribute(Dto):
 
 
 class InvoiceKpis(Dto):
-    """The KPI block. Measured 268 times, never null."""
+    """The KPI block."""
 
     credit_applied: str | None = None
     credit_issued: str | None = None
@@ -159,28 +156,22 @@ class InvoiceNote(Dto):
     id: str | None = None
     href: str | None = None
     content: str | None = None
-    #: An ``int``, 10 of 10 measured.
     version: int | None = None
     #: A ``{object, id, name, href}`` reference to the invoice the note is on.
     invoice: InvoiceNoteDetail | None = None
-    #: Null on all 10 measured. Untyped rather than guessed at.
     group: Any = None
-    #: Null on all 10 measured.
     user: Any = None
     attachments: list[InvoiceNoteAttachment] | None = None
     #: The wire key; ``watcherList`` is never sent.
     watchers: list[InvoiceNoteWatcher] | None = None
     created_on: str | None = None
-    #: A ``{object, name}`` user block, 10 of 10 measured.
     created_by: InvoiceNoteCreatedBy | None = None
-    #: Null on all 10 measured.
     last_updated_on: Any = None
-    #: Null on all 10 measured.
     last_updated_by: Any = None
 
 
 class ItemFulfillment(Dto):
-    """One fulfilment against an invoice, measured 4 times from the v4 collection, not the instance."""
+    """One fulfilment against an invoice."""
 
     uuid: str | None = None
     id: str | None = None
@@ -216,7 +207,7 @@ class Invoice(Dto):
     payment_status: str | None = None
 
     account_id: str | None = None
-    #: Present on 16 of 286 - the listing carries it, the detail read does not.
+    #: Present on the listing only: the listing carries it, the detail read does not.
     account_name: str | None = None
     order_id: str | None = None
     customer_purchase_order_id: str | None = None
@@ -226,7 +217,7 @@ class Invoice(Dto):
     due_date: str | None = None
     alternate_issue_date: str | None = None
     alternate_due_date: str | None = None
-    #: The four billing dates arrive on 50 of 286 - a recurring invoice only.
+    #: The four billing dates arrive on a recurring invoice only.
     billing_start_date: str | None = None
     billing_end_date: str | None = None
     alternate_billing_start_date: str | None = None
@@ -252,7 +243,7 @@ class Invoice(Dto):
     currency: InvoiceCurrency | None = None
     custom_form: InvoiceCustomForm | None = None
     kpis: InvoiceKpis | None = None
-    #: Null on 202 of 270 - an unpaid invoice has none.
+    #: Null for an unpaid invoice.
     last_payment: LastPayment | None = None
 
     created_on: str | None = None
@@ -438,7 +429,7 @@ class InvoiceLineItem(Dto):
 
 class InvoiceKpisRead(InvoiceKpis):
     """What ``get_invoice_kpis`` answers, under ``invoice_kpis``: the block an invoice carries as
-    ``kpis``, with an ``object`` beside it. Measured on 2 invoices."""
+    ``kpis``, with an ``object`` beside it."""
 
     ENVELOPE_KEY = "invoice_kpis"
 

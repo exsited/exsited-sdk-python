@@ -59,7 +59,7 @@ class AuthConfig:
     Four credentials, the four the token endpoint takes.
 
     :ivar base_url: instance URL, e.g.
-        ``https://your-instance.myexsited.com``. Needs an ``http://`` or
+        ``https://your-instance.example.com``. Needs an ``http://`` or
         ``https://`` scheme and a host; a trailing ``/`` is stripped. An optional
         base path is allowed (for an instance mounted under a sub-path, e.g.
         ``https://host/store``), but a query string, a fragment or

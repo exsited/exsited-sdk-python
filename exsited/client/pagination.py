@@ -189,7 +189,6 @@ def _read_next_offset(block: Mapping[str, Any], records_on_page: int) -> int | N
     if isinstance(limit, int) and not isinstance(limit, bool) and limit > 0:
         step = limit
     else:
-        # A fallback: every measured offset block carries an integer limit.
         step = records_on_page
     if step <= 0:
         return None

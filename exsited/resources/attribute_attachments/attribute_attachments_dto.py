@@ -1,5 +1,4 @@
-"""Typed views over the attribute attachment bodies: none, since no measured account
-carries a file attribute."""
+"""Typed views over the attribute attachment bodies: none."""
 
 from __future__ import annotations
 

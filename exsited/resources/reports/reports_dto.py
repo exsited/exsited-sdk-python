@@ -66,7 +66,6 @@ __all__ = [
 class ReportsAccountsAccountOverview(Dto):
     """The reports accounts account overview body, under ``report``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/reports/accounts/account_overview",)
 
     ENVELOPE_KEY = "report"
 
@@ -76,7 +75,6 @@ class ReportsAccountsAccountOverview(Dto):
 class ReportsInvoicesInvoiceOverview(Dto):
     """What ``get_reports_invoices_invoice_overview`` answers, under ``report``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/reports/invoices/invoice_overview",)
 
     ENVELOPE_KEY = "report"
 
@@ -86,7 +84,6 @@ class ReportsInvoicesInvoiceOverview(Dto):
 class ReportsOrdersOrderOverview(Dto):
     """What ``get_reports_orders_order_overview`` answers, under ``report``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/reports/orders/order_overview",)
 
     ENVELOPE_KEY = "report"
 
@@ -97,7 +94,6 @@ class ReportsPurchaseInvoicesPurchaseInvoiceOverview(Dto):
     """What ``get_reports_purchase_invoices_purchase_invoice_overview`` answers, under
     ``report``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/reports/purchase_invoices/purchase_invoice_overview",)
 
     ENVELOPE_KEY = "report"
 
@@ -107,7 +103,6 @@ class ReportsPurchaseInvoicesPurchaseInvoiceOverview(Dto):
 class ReportsPurchaseOrdersPurchaseOrderOverview(Dto):
     """What ``get_reports_purchase_orders_purchase_order_overview`` answers, under ``report``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/reports/purchase_orders/purchase_order_overview",)
 
     ENVELOPE_KEY = "report"
 
@@ -118,9 +113,6 @@ class ReportsPurchaseTransactionsPurchasePaymentAndRefundOverview(Dto):
     """What ``get_reports_purchase_transactions_purchase_payment_and_refund_overview`` answers,
     under ``report``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/reports/purchase_transactions/purchase_payment_and_refund_overview",
-    )
 
     ENVELOPE_KEY = "report"
 
@@ -132,7 +124,6 @@ class ReportsPurchaseTransactionsPurchasePaymentAndRefundOverview(Dto):
 class ReportsTransactionsPaymentAndRefundOverview(Dto):
     """What ``get_reports_transactions_payment_and_refund_overview`` answers, under ``report``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/reports/transactions/payment_and_refund_overview",)
 
     ENVELOPE_KEY = "report"
 

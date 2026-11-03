@@ -14,11 +14,6 @@ __all__ = [
 class Event(Dto):
     """The event body, under ``event``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/events",
-        "GET /api/{api_version}/events/{event_uuid}",
-        "POST /api/{api_version}/events/{event_uuid}/remove",
-    )
 
     ENVELOPE_KEY = "event"
 
@@ -37,7 +32,6 @@ class Event(Dto):
 class EventList(Dto):
     """One page of ``Event`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/events",)
 
     data: list[Event] | None = None
     object: str | None = None

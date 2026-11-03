@@ -19,16 +19,9 @@ class ActionScript(Dto):
     """The action script body, under ``action_script``; ``activity_logs`` comes on the create
     answer only."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/action_scripts",
-        "GET /api/{api_version}/action_scripts/{action_script_id}",
-        "POST /api/{api_version}/action_scripts",
-        "PATCH /api/{api_version}/action_scripts/{action_script_id}",
-    )
 
     ENVELOPE_KEY = "action_script"
 
-    # Null in every record measured, so untyped.
     action_name: Any = None
     activity_logs: list[Any] | None = None
     created_by: ActionScriptCreatedBy | None = None
@@ -38,11 +31,9 @@ class ActionScript(Dto):
     href: str | None = None
     id: str | None = None
     last_updated_by: ActionScriptLastUpdatedBy | None = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     name: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     object_name: Any = None
     status: str | None = None
 
@@ -50,7 +41,6 @@ class ActionScript(Dto):
 class ActionScriptList(Dto):
     """One page of ``ActionScript`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/action_scripts",)
 
     data: list[ActionScript] | None = None
     object: str | None = None

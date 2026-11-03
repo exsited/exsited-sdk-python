@@ -41,7 +41,6 @@ __all__ = [
 class ItemFulfillment(Dto):
     """The item fulfillment body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/item_fulfillments",)
 
     account: ItemFulfillmentAccount | None = None
     code: str | None = None
@@ -49,7 +48,6 @@ class ItemFulfillment(Dto):
     created_on: str | None = None
     custom_attributes: dict[str, Any] | None = None
     date: str | None = None
-    # Null in every record measured, so untyped.
     delivery_status: Any = None
     fulfillment_completed: bool | None = None
     fulfillment_date: str | None = None
@@ -64,7 +62,6 @@ class ItemFulfillment(Dto):
     last_updated_on: str | None = None
     note: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     order: Any = None
     order_id: str | None = None
     status: str | None = None
@@ -76,7 +73,6 @@ class ItemFulfillment(Dto):
 class ItemFulfillmentList(Dto):
     """One page of ``ItemFulfillment`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/item_fulfillments",)
 
     data: list[ItemFulfillment] | None = None
     object: str | None = None
@@ -87,11 +83,6 @@ class ItemFulfillmentList(Dto):
 class ItemFulfillmentRead(Dto):
     """The item fulfillment read body, under ``item_fulfillment``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/invoices/{invoice_id}/item_fulfillments",
-        "GET /api/{api_version}/invoices/{invoice_id}/item_fulfillments/{fulfillment_id}",
-        "GET /api/{api_version}/item_fulfillments/{fulfillment_id}",
-    )
 
     ENVELOPE_KEY = "item_fulfillment"
 
@@ -100,7 +91,6 @@ class ItemFulfillmentRead(Dto):
     created_by: ItemFulfillmentReadCreatedBy | None = None
     created_on: str | None = None
     custom_attributes: dict[str, Any] | None = None
-    # Null in every record measured, so untyped.
     delivery_status: Any = None
     fulfillment_completed: bool | None = None
     fulfillment_date: str | None = None
@@ -113,7 +103,6 @@ class ItemFulfillmentRead(Dto):
     last_updated_by: ItemFulfillmentReadLastUpdatedBy | None = None
     last_updated_on: str | None = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     order: Any = None
     status: str | None = None
     tracking_number: str | None = None
@@ -123,7 +112,6 @@ class ItemFulfillmentRead(Dto):
 class ItemFulfillmentReadList(Dto):
     """One page of ``ItemFulfillmentRead`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/invoices/{invoice_id}/item_fulfillments",)
 
     data: list[ItemFulfillmentRead] | None = None
     object: str | None = None
@@ -134,7 +122,6 @@ class ItemFulfillmentReadList(Dto):
 class ItemFulfillments(Dto):
     """The item fulfillments body, under ``invoice``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/item_fulfillments",)
 
     ENVELOPE_KEY = "invoice"
 
@@ -145,7 +132,6 @@ class ItemFulfillments(Dto):
 class ItemFulfillmentUpdated(Dto):
     """The item fulfillment updated body."""
 
-    MEASURED_FROM = ("PATCH /api/{api_version}/item_fulfillments/{fulfillment_id}",)
 
     item_fulfillment: ItemFulfillmentUpdatedDetail | None = None
     note: str | None = None
@@ -155,7 +141,6 @@ class ItemFulfillmentUpdated(Dto):
 class ItemFulfillmentNotes(Dto):
     """What ``create_item_fulfillment_note`` answers, under ``note``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/item_fulfillments/{fulfillment_id}/notes",)
 
     ENVELOPE_KEY = "note"
 
@@ -173,17 +158,13 @@ class ItemFulfillmentNote(Dto):
     content: str | None = None
     created_by: ItemFulfillmentCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
     item_fulfillment: ItemFulfillmentNotesDetail | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[ItemFulfillmentNoteWatcher] | None = None
@@ -210,7 +191,6 @@ class ItemFulfillmentNoteWatcher(Dto):
 class ItemFulfillmentNoteList(Dto):
     """One page of ``ItemFulfillmentNote`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/item_fulfillments/{fulfillment_id}/notes",)
 
     data: list[ItemFulfillmentNote] | None = None
     object: str | None = None
@@ -221,7 +201,6 @@ class ItemFulfillmentNoteList(Dto):
 class ItemFulfillmentNoteRead(Dto):
     """What ``get_item_fulfillment_note`` answers: the note under ``item_fulfillment.note``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/item_fulfillments/{fulfillment_id}/notes/{note_id}",)
 
     ENVELOPE_KEY = "item_fulfillment"
 
@@ -253,7 +232,6 @@ class ItemFulfillmentReadRow(Dto):
     fulfillment_qty: float | None = None
     fulfillment_sent_qty: float | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     inventory_tracking: Any = None
     item: ItemFulfillmentReadRowItem | None = None
     object: str | None = None
@@ -284,7 +262,6 @@ class ItemFulfillmentsItemFulfillment(Dto):
     activity_logs: list[Any] | None = None
     code: str | None = None
     fulfillment_date: str | None = None
-    # Null in every record measured, so untyped.
     fulfillment_note: Any = None
     fulfillment_status: str | None = None
     href: str | None = None
@@ -348,7 +325,6 @@ class ItemFulfillmentRow(Dto):
     fulfillment_qty: float | None = None
     fulfillment_sent_qty: float | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     inventory_tracking: Any = None
     item: ItemFulfillmentRowItem | None = None
     object: str | None = None

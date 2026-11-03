@@ -32,10 +32,6 @@ __all__ = [
 class Refund(Dto):
     """The refund body, under ``refund``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/refunds",
-        "GET /api/{api_version}/refunds/{refund_id}",
-    )
 
     ENVELOPE_KEY = "refund"
 
@@ -45,13 +41,11 @@ class Refund(Dto):
     created_on: str | None = None
     credit_note: RefundCreditNote | None = None
     custom_attributes: list[Any] | None = None
-    # Null in every record measured, so untyped.
     gateway_response: Any = None
     id: str | None = None
     issue_date: str | None = None
     last_updated_by: str | None = None
     last_updated_on: str | None = None
-    # Null in every record measured, so untyped.
     note: Any = None
     object: str | None = None
     payment_method: str | None = None
@@ -66,7 +60,6 @@ class Refund(Dto):
 class RefundList(Dto):
     """One page of ``Refund`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/refunds",)
 
     data: list[Refund] | None = None
     object: str | None = None
@@ -77,10 +70,6 @@ class RefundList(Dto):
 class RefundUpdated(Dto):
     """The refund updated body, under ``refund``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/credit_notes/{credit_note_id}/refunds",
-        "PATCH /api/{api_version}/refunds/{refund_id}",
-    )
 
     ENVELOPE_KEY = "refund"
 
@@ -110,7 +99,6 @@ class RefundUpdated(Dto):
 class AccountRefunds(Dto):
     """The account refunds body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/accounts/{account_id}/refunds",)
 
     data: list[AccountRefundsData] | None = None
     object: str | None = None
@@ -127,15 +115,11 @@ class AccountRefundsData(Dto):
     created_on: str | None = None
     credit_note: AccountRefundsDataCreditNote | None = None
     custom_attributes: list[Any] | None = None
-    # Null in every record measured, so untyped.
     gateway_response: Any = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
-    # Null in every record measured, so untyped.
     note: Any = None
     object: str | None = None
     payment_method: str | None = None
@@ -204,11 +188,6 @@ class AccountRefundsDataCreditNote(Dto):
 class RefundNote(Dto):
     """One note on a refund, under ``note``."""
 
-    MEASURED_FROM = (
-        "POST /api/{api_version}/refunds/{refund_id}/notes",
-        "GET /api/{api_version}/refunds/{refund_id}/notes",
-        "GET /api/{api_version}/refunds/{refund_id}/notes/{note_id}",
-    )
 
     ENVELOPE_KEY = "note"
 
@@ -216,17 +195,13 @@ class RefundNote(Dto):
     content: str | None = None
     created_by: RefundNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     refund: RefundNoteDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[RefundNoteWatcher] | None = None
@@ -235,7 +210,6 @@ class RefundNote(Dto):
 class RefundNoteList(Dto):
     """One page of ``RefundNote`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/refunds/{refund_id}/notes",)
 
     data: list[RefundNote] | None = None
     object: str | None = None
@@ -246,7 +220,6 @@ class RefundNoteList(Dto):
 class RefundNoteFile(Dto):
     """One attachment's descriptor, under ``file``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/refunds/{refund_id}/notes/{note_id}/files/{file_id}",)
 
     ENVELOPE_KEY = "file"
 
@@ -278,7 +251,6 @@ class RefundNoteAttachment(Dto):
 class RefundNoteWatcher(Dto):
     """One entry of a :class:`RefundNote`'s ``watchers``."""
 
-    # Null in every record measured, so untyped.
     email: Any = None
     name: str | None = None
     type: str | None = None

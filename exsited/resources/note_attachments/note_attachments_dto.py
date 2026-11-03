@@ -12,7 +12,6 @@ __all__ = [
 class NoteAttachment(Dto):
     """The note attachment body, under ``note_attachment``; ``base64`` is the file itself."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/note_attachment/{attachment_uuid}",)
 
     ENVELOPE_KEY = "note_attachment"
 

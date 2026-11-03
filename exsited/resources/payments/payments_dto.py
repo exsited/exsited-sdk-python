@@ -56,11 +56,6 @@ __all__ = [
 class Payment(Dto):
     """The payment body."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/invoices/{invoice_id}/payments",
-        "GET /api/{api_version}/orders/{order_id}/payments",
-        "GET /api/{api_version}/payments",
-    )
 
     account: PaymentAccount | None = None
     created_by: PaymentCreatedBy | None = None
@@ -83,11 +78,6 @@ class Payment(Dto):
 class PaymentList(Dto):
     """One page of ``Payment`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/invoices/{invoice_id}/payments",
-        "GET /api/{api_version}/orders/{order_id}/payments",
-        "GET /api/{api_version}/payments",
-    )
 
     data: list[Payment] | None = None
     object: str | None = None
@@ -98,23 +88,18 @@ class PaymentList(Dto):
 class PaymentNote(Dto):
     """The payment note body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/payments/{payment_id}/notes",)
 
     attachments: list[PaymentNoteAttachment] | None = None
     content: str | None = None
     created_by: PaymentNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     payment: PaymentNoteDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PaymentNoteWatcher] | None = None
@@ -123,7 +108,6 @@ class PaymentNote(Dto):
 class PaymentNoteList(Dto):
     """One page of ``PaymentNote`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/payments/{payment_id}/notes",)
 
     data: list[PaymentNote] | None = None
     object: str | None = None
@@ -134,22 +118,17 @@ class PaymentNoteList(Dto):
 class PaymentsNote(Dto):
     """The payments note body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/payments/notes",)
 
     attachments: list[PaymentsNoteAttachment] | None = None
     content: str | None = None
     created_by: PaymentsNoteCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PaymentsNoteWatcher] | None = None
@@ -158,7 +137,6 @@ class PaymentsNote(Dto):
 class PaymentsNoteList(Dto):
     """One page of ``PaymentsNote`` records, under ``data``; paged by offset."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/payments/notes",)
 
     data: list[PaymentsNote] | None = None
     object: str | None = None
@@ -169,10 +147,6 @@ class PaymentsNoteList(Dto):
 class PaymentRead(Dto):
     """The payment read body, under ``payment``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/payments/{payment_id}",
-        "PATCH /api/{api_version}/payments/{payment_id}",
-    )
 
     ENVELOPE_KEY = "payment"
 
@@ -199,7 +173,6 @@ class PaymentRead(Dto):
 class AccountPayments(Dto):
     """The account payments body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/accounts/{account_id}/payments",)
 
     data: list[Payment] | None = None
     object: str | None = None
@@ -210,7 +183,6 @@ class AccountPayments(Dto):
 class PaymentNoteRead(Dto):
     """The payment note read body, under ``payment``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/payments/{payment_id}/notes/{payment_note_id}",)
 
     ENVELOPE_KEY = "payment"
 
@@ -220,9 +192,6 @@ class PaymentNoteRead(Dto):
 class PaymentNoteFile(Dto):
     """What ``get_payment_note_file`` answers, under ``file``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/payments/{payment_id}/notes/{payment_note_id}/files/{payment_file_id}",
-    )
 
     ENVELOPE_KEY = "file"
 
@@ -236,7 +205,6 @@ class PaymentNoteFile(Dto):
 class PaymentNotes(Dto):
     """What ``create_payment_note`` answers, under ``note``."""
 
-    MEASURED_FROM = ("POST /api/{api_version}/payments/{payment_id}/notes",)
 
     ENVELOPE_KEY = "note"
 
@@ -244,17 +212,13 @@ class PaymentNotes(Dto):
     content: str | None = None
     created_by: PaymentNotesCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     payment: PaymentNotesDetail | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PaymentNotesWatcher] | None = None
@@ -273,7 +237,6 @@ class PaymentReadPaymentApplied(Dto):
     """One entry of a :class:`PaymentRead`'s ``payment_applied``."""
 
     amount: str | None = None
-    # Null in every record measured, so untyped.
     gateway_response: Any = None
     method: str | None = None
     processor: str | None = None
@@ -337,17 +300,13 @@ class PaymentNoteReadDetail(Dto):
     content: str | None = None
     created_by: PaymentNoteReadDetailCreatedBy | None = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     group: Any = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     object: str | None = None
     payment: PaymentNoteReadDetailPayment | None = None
-    # Null in every record measured, so untyped.
     user: Any = None
     version: int | None = None
     watchers: list[PaymentNoteReadDetailWatcher] | None = None
@@ -399,7 +358,6 @@ class PaymentPaymentApplied(Dto):
     """One entry of a :class:`Payment`'s ``payment_applied``."""
 
     amount: str | None = None
-    # Null in every record measured, so untyped.
     gateway_response: Any = None
     method: str | None = None
     processor: str | None = None

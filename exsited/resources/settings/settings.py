@@ -1055,7 +1055,9 @@ def get_settings_general_settings(
     response_format: str | None = None,
 ) -> ApiResponse[SettingsGeneralSettings]:
     """Read one group of general settings - ``GET /settings/general_settings/{group}``, under
-    ``general_settings``; ``group`` is one of the twelve the server names, any case."""
+    ``general_settings``; ``group`` is one of ``account``, ``dashboard``, ``date_and_time``,
+    ``display``, ``general``, ``item``, ``labour``, ``order``, ``portal``, ``purchase``,
+    ``security`` and ``transaction``, any case."""
     return client.send_get_request(
         settings_urls.SETTINGS_GENERAL_SETTINGS_GROUP,
         path_params={"group": group},

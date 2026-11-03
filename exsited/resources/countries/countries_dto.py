@@ -16,19 +16,12 @@ __all__ = [
 class SettingsCountry(Dto):
     """The settings country body, under ``country``."""
 
-    MEASURED_FROM = (
-        "GET /api/{api_version}/settings/countries",
-        "GET /api/{api_version}/settings/countries/{country_id}",
-        "PATCH /api/{api_version}/settings/countries/{country_id}",
-    )
 
     ENVELOPE_KEY = "country"
 
     code: str | None = None
-    # Null in every record measured, so untyped.
     created_by: Any = None
     created_on: str | None = None
-    # Null in every record measured, so untyped.
     default_area_code: Any = None
     default_city: str | None = None
     default_post_code: str | None = None
@@ -38,7 +31,6 @@ class SettingsCountry(Dto):
     flag_exists: bool | None = None
     href: str | None = None
     id: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
     last_updated_on: str | None = None
     name: str | None = None
@@ -49,7 +41,6 @@ class SettingsCountry(Dto):
 class SettingsCountryList(Dto):
     """One page of ``SettingsCountry`` records, under ``data``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/settings/countries",)
 
     data: list[SettingsCountry] | None = None
     object: str | None = None

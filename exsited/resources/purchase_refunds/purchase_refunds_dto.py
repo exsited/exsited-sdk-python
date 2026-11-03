@@ -31,7 +31,6 @@ __all__ = [
 class PurchaseRefunds(Dto):
     """The purchase refunds body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_refunds",)
 
     alternate_date: str | None = None
     amount: str | None = None
@@ -59,7 +58,6 @@ class PurchaseRefunds(Dto):
 class PurchaseRefund(Dto):
     """The purchase refund body, under ``purchase_refund``."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/purchase_refunds/{purchase_refund_id}",)
 
     ENVELOPE_KEY = "purchase_refund"
 
@@ -80,7 +78,6 @@ class PurchaseRefund(Dto):
     object: str | None = None
     payment_method: str | None = None
     payment_processor: str | None = None
-    # Null in every record measured, so untyped.
     purchase_refund: Any = None
     reference: str | None = None
     status: str | None = None
@@ -91,7 +88,6 @@ class PurchaseRefund(Dto):
 class AccountPurchaseRefunds(Dto):
     """The account purchase refunds body."""
 
-    MEASURED_FROM = ("GET /api/{api_version}/accounts/{account_id}/purchase_refunds",)
 
     data: list[AccountPurchaseRefundsData] | None = None
     object: str | None = None
@@ -110,9 +106,7 @@ class AccountPurchaseRefundsData(Dto):
     custom_attributes: list[AccountPurchaseRefundsDataCustomAttribute] | None = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     note: str | None = None
     object: str | None = None
@@ -135,9 +129,7 @@ class PurchaseRefundsData(Dto):
     custom_attributes: list[PurchaseRefundsDataCustomAttribute] | None = None
     id: str | None = None
     issue_date: str | None = None
-    # Null in every record measured, so untyped.
     last_updated_by: Any = None
-    # Null in every record measured, so untyped.
     last_updated_on: Any = None
     note: str | None = None
     object: str | None = None

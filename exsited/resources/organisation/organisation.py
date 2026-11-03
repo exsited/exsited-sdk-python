@@ -19,8 +19,7 @@ def get_settings_organisation(
     raise_on_error: bool | None = None,
     response_format: str | None = None,
 ) -> ApiResponse[SettingsOrganisation]:
-    """Get the root organisation - ``GET /settings/organisation``; read only, a PATCH here
-    answers 405."""
+    """Get the root organisation - ``GET /settings/organisation``; read only."""
     return client.send_get_request(
         organisation_urls.SETTINGS_ORGANISATION,
         raise_on_error=raise_on_error,
